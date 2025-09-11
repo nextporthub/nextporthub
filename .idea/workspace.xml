@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="163d7528-b3d5-4ff8-b28b-2c6fe73fb8f6" name="Changes" comment="" />
+    <list default="true" id="163d7528-b3d5-4ff8-b28b-2c6fe73fb8f6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.well-known/bimi.svg" beforeDir="false" afterPath="$PROJECT_DIR$/.well-known/bimi.svg" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
