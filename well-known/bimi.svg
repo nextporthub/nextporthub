@@ -1,23 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- NextPort Hub – BIMI icon (SVG Tiny 1.2, fully vector) -->
+<!-- NextPort Hub – BIMI full mark (SVG Tiny 1.2, flat vectors, no external refs) -->
 <svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny"
-    width="512" height="512" viewBox="0 0 512 512">
-  <defs>
-    <title>NextPort Hub</title>
-  </defs>
+     width="512" height="512" viewBox="0 0 512 512">
+  <defs><title>NextPort Hub</title></defs>
 
-  <!-- Брендовый круг -->
+  <!-- Brand ring -->
   <circle cx="256" cy="256" r="220" fill="#c23a2a"/>
-
-  <!-- Внутренний круг (слоновая кость) -->
+  <!-- Inner disc -->
   <circle cx="256" cy="256" r="200" fill="#f1e5cf"/>
 
-  <!-- Волны -->
-  <path d="M80 332
-           c30 18 60 18 90 0
-           c30 -18 60 -18 90 0
-           c30 18 60 18 90 0
-           c30 -18 60 -18 90 0
-           v40 h-360 z"
-      fill="#0f2a40"/>
+  <!-- Waves band -->
+  <path d="M88 332
+           c28 18 56 18 84 0
+           c28 -18 56 -18 84 0
+           c28 18 56 18 84 0
+           c28 -18 56 -18 84 0
+           v40 h-336 z"
+        fill="#0f2a40"/>
+
+  <!-- Hull -->
+  <path d="M142 318
+           c94 10 188 10 248 -6
+           c-6 16 -22 30 -44 36
+           c-72 18 -160 18 -208 4
+           c-14 -4 -18 -16 4 -34 z"
+        fill="#0f2a40"/>
+
+  <!-- Hull highlight -->
+  <path d="M188 336 c64 6 128 6 188 -7
+           c-8 9 -16 15 -26 18
+           c-60 13 -122 13 -160 5
+           c-7 -2 -8 -7 -2 -16 z"
+        fill="#1a3b57"/>
+
+  <!-- Superstructure and containers -->
+  <rect x="198" y="284" width="62" height="24" fill="#0f2a40"/>
+  <rect x="266" y="274" width="58" height="22" fill="#0f2a40"/>
+  <rect x="266" y="296" width="58" height="18" fill="#0f2a40"/>
+  <rect x="328" y="282" width="50" height="20" fill="#0f2a40"/>
+
+  <!-- Mast + flag -->
+  <rect x="352" y="256" width="6" height="36" fill="#0f2a40"/>
+  <path d="M358 258 l28 8 l-28 10 z" fill="#0f2a40"/>
+
+  <!-- Wordmark 'NEXTPORT' as paths (fits inside disc) -->
+  <g transform="translate(86,356) scale(0.8)" fill="#c23a2a">
+    <!-- N -->
+    <path d="M0 0 h19 v30 l22 -30 h19 v62 h-19 v-30 l-22 30 h-19 z"/>
+    <!-- E -->
+    <path d="M92 0 h38 v12 h-22 v10 h18 v10 h-18 v10 h22 v12 h-38 z"/>
+    <!-- X -->
+    <path d="M150 0 h18 l13 18 l13 -18 h18 l-22 30 l22 32 h-18 l-13 -18 l-13 18 h-18 l22 -32 z"/>
+    <!-- T -->
+    <path d="M236 0 h44 v12 h-13 v50 h-18 v-50 h-13 z"/>
+    <!-- P -->
+    <path d="M294 0 h32 c16 0 26 9 26 21 c0 12 -10 21 -26 21 h-14 v20 h-18 z
+             M312 12 v16 h14 c6 0 10 -3 10 -8 s-4 -8 -10 -8 z"/>
+    <!-- O -->
+    <path d="M368 31 c0 -20 16 -33 36 -33 s36 13 36 33 s-16 33 -36 33 s-36 -13 -36 -33 z
+             M386 31 c0 10 7 19 18 19 s18 -9 18 -19 s-7 -19 -18 -19 s-18 9 -18 19 z"/>
+    <!-- R -->
+    <path d="M454 0 h30 c16 0 26 9 26 21 c0 10 -7 18 -18 20 l20 21 h-20 l-18 -19 h-2 v19 h-18 z
+             M472 12 v16 h12 c6 0 10 -3 10 -8 s-4 -8 -10 -8 z"/>
+    <!-- T -->
+    <path d="M536 0 h44 v12 h-13 v50 h-18 v-50 h-13 z"/>
+  </g>
+
+  <!-- HUB below as paths -->
+  <g transform="translate(188,410) scale(0.8)" fill="#c23a2a">
+    <!-- H -->
+    <path d="M0 0 h18 v18 h18 v-18 h18 v62 h-18 v-28 h-18 v28 h-18 z"/>
+    <!-- U -->
+    <path d="M66 0 h18 v44 c0 6 4 10 10 10 s10 -4 10 -10 v-44 h18 v44 c0 16 -14 28 -28 28 s-28 -12 -28 -28 z"/>
+    <!-- B -->
+    <path d="M138 0 h30 c18 0 30 9 30 22 c0 8 -4 13 -10 16 c8 4 12 11 12 18 c0 13 -12 22 -32 22 h-30 z
+             M156 12 v14 h12 c6 0 10 -3 10 -7 c0 -4 -4 -7 -10 -7 z
+             M156 40 v14 h14 c8 0 12 -3 12 -7 c0 -5 -6 -7 -12 -7 z"/>
+  </g>
 </svg>
