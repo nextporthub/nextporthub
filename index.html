@@ -3,221 +3,150 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NextPort Hub — Freight from China to US/Canada/EU</title>
-  <meta name="description" content="Door-to-door freight from China to the US, Canada, and EU. Consolidation in China, customs clearance, last-mile. From 1 ton. Pay USD or crypto.">
-  <meta name="theme-color" content="#0f172a">
+  <title>NextPort Hub — Freight China → US/CA/EU</title>
+  <meta name="description" content="Door-to-door freight from China with consolidation, customs and last-mile. From 1 ton. USD/USDT/BTC.">
+  <meta name="theme-color" content="#0b1220">
   <link rel="icon" href="/assets/favicon.png">
-  <link rel="preconnect" href="https://nextporthub.com" crossorigin>
-  <meta property="og:title" content="NextPort Hub — Freight from China to US/Canada/EU">
-  <meta property="og:description" content="Own warehouse in China · LCL/FCL sea & road · Air on request · USD or crypto · Customs included.">
-  <meta property="og:url" content="https://nextporthub.com/">
-  <meta property="og:type" content="website">
   <style>
-    :root{--bg:#0b1220;--panel:#0f172a;--muted:#94a3b8;--text:#e2e8f0;--brand:#22c55e;--line:#1f2937;--card:#111827}
+    :root{
+      --bg:#0b1220;--panel:#0f172a;--line:#1e293b;
+      --text:#e2e8f0;--muted:#94a3b8;--brand:#22c55e
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#0b1220 0%,#0b1220 50%,#0d1526 100%);color:var(--text)}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0b1220;color:var(--text)}
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1140px;margin:0 auto;padding:0 18px}
-    header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(10px);background:rgba(11,18,32,.7);border-bottom:1px solid var(--line);z-index:9}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .logo-row{display:flex;align-items:center;gap:10px}
-    .logo-row img{height:32px;width:auto;border-radius:6px}
-    .brand{font-weight:800;letter-spacing:.2px}
-    .btn{display:inline-block;padding:11px 16px;border-radius:12px;border:1px solid var(--line)}
-    .btn-primary{background:var(--brand);border:none;color:#062a14;font-weight:700}
-    .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;padding:46px 0}
-    h1{margin:0 0 12px;font-size:40px;line-height:1.1}
-    h2{margin:0 0 10px}
-    .sub{color:var(--muted);line-height:1.6;margin:0 0 18px}
-    .chip{display:inline-flex;align-items:center;gap:8px;background:#072415;border:1px solid #0f3a25;color:#a7f3d0;border-radius:999px;padding:6px 12px;font-size:13px;margin:0 0 12px}
-    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
-    .kpi{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:12px;text-align:center}
-    .kpi b{font-size:18px;display:block}
+    .wrap{max-width:980px;margin:0 auto;padding:0 18px}
+    header{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.75);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo img{height:56px;width:auto;border-radius:10px} /* bigger logo */
+    .brand{font-weight:800;font-size:18px;letter-spacing:.2px}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--line)}
+    .btn-primary{background:var(--brand);border:none;color:#06361b;font-weight:800}
+    main{padding:28px 0 40px}
+    .hero{display:grid;gap:22px;align-items:center;justify-items:center;text-align:center;padding:26px 0}
+    h1{margin:0 0 8px;font-size:40px;line-height:1.08}
+    .sub{color:var(--muted);margin:0 0 16px;max-width:740px}
+    .quick{display:grid;grid-auto-flow:column;gap:10px;justify-content:center}
+    .pill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--muted);font-size:13px}
     .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
-    .cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     .cols-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .muted{color:var(--muted)}
-    .badge{display:inline-block;background:#071725;border:1px solid #0e2843;color:#bae6fd;border-radius:999px;padding:6px 10px;font-size:12px;margin-right:6px;margin-bottom:6px}
-    .table{width:100%;border-collapse:collapse}
-    .table th,.table td{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left}
-    input,textarea,select{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0c1323;color:var(--text);outline:0}
-    textarea{min-height:120px;resize:vertical}
-    .cta-bar{position:sticky;bottom:14px;display:flex;gap:10px;justify-content:center;margin-top:10px}
+    label{display:block;font-size:14px}
+    input,textarea,select{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:#0c1323;color:var(--text);outline:0}
+    textarea{min-height:110px;resize:vertical}
+    .hint{color:var(--muted);font-size:13px}
     footer{border-top:1px solid var(--line);margin-top:36px}
-    .foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:18px 0;color:var(--muted);font-size:14px}
-    .mobile{display:none}
+    .foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:16px 0;color:var(--muted);font-size:13px}
     @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .kpis{grid-template-columns:repeat(2,1fr)}
-      .cols-3,.cols-2{grid-template-columns:1fr}
+      .logo img{height:44px}
       h1{font-size:32px}
-      .hide-mobile{display:none}
-      .mobile{display:inline-flex}
+      .cols-2{grid-template-columns:1fr}
+      .quick{grid-auto-flow:row}
     }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"NextPort Hub",
-    "url":"https://nextporthub.com",
-    "logo":"https://nextporthub.com/assets/logo.png",
-    "sameAs":["https://www.linkedin.com/company/nextporthub"],
-    "contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"sales@nextporthub.com","areaServed":["US","CA","EU"]}]
-  }
-  </script>
 </head>
 <body>
 <header>
   <div class="wrap nav">
-    <div class="logo-row">
+    <div class="logo">
       <img src="/assets/logo.png" alt="NextPort Hub logo" loading="eager">
       <span class="brand">NextPort Hub</span>
     </div>
-    <nav class="hide-mobile">
-      <a class="btn" href="#services">Services</a>
+    <nav>
       <a class="btn" href="#rfq">Request a quote</a>
-      <a class="btn btn-primary" href="#contact">Contact</a>
     </nav>
-    <a class="btn mobile" href="#rfq">Quote</a>
   </div>
 </header>
 
 <main class="wrap">
   <section class="hero">
-    <div>
-      <div class="chip">China → US / Canada / EU · from 1 ton</div>
-      <h1>Door-to-door freight from China. Consolidation, customs & last-mile — handled.</h1>
-      <p class="sub">Own warehouse in China · LCL/FCL sea & road · Air on request · USD or crypto · Customs clearance included.</p>
-      <div>
-        <a class="btn btn-primary" href="#rfq">Request a quote</a>
-        <a class="btn" href="#services">See how it works</a>
-      </div>
-      <div class="kpis" aria-label="key metrics">
-        <div class="kpi"><b>1t+</b><span class="muted">Minimum shipment</span></div>
-        <div class="kpi"><b>Own CN</b><span class="muted">Warehouse & consolidation</span></div>
-        <div class="kpi"><b>Customs</b><span class="muted">Clearance “turnkey”</span></div>
-        <div class="kpi"><b>USD / Crypto</b><span class="muted">Flexible payments</span></div>
-      </div>
+    <h1>Door-to-door freight from China</h1>
+    <p class="sub">We handle consolidation in China, customs clearance and last-mile delivery. From 1 ton. Pay in USD / USDT / BTC.</p>
+    <div class="quick" aria-label="key facts">
+      <span class="pill">China → US / Canada / EU</span>
+      <span class="pill">From 1t</span>
+      <span class="pill">Customs included</span>
     </div>
-    <div class="panel">
-      <b>3 steps:</b>
-      <div style="margin-top:10px;display:grid;gap:10px">
-        <div class="panel" style="padding:12px"><b>1) Supplier → our CN warehouse</b><div class="muted">We receive, check, pack & consolidate from multiple factories.</div></div>
-        <div class="panel" style="padding:12px"><b>2) Ship: sea / road / air</b><div class="muted">LCL/FCL to US/CA/EU with port fees handled.</div></div>
-        <div class="panel" style="padding:12px"><b>3) Customs & last-mile</b><div class="muted">We clear customs and deliver to your door, FBA, 3PL or warehouse.</div></div>
-      </div>
+    <div style="margin-top:14px">
+      <a class="btn btn-primary" href="#rfq">Get a quote</a>
     </div>
   </section>
 
-  <section id="services" class="panel">
-    <h2>What we do</h2>
-    <div class="cols-3">
-      <div class="panel">
-        <h3>Consolidation in China</h3>
-        <ul class="muted">
-          <li>Receive from multiple suppliers (1688/Alibaba/factories)</li>
-          <li>Inspection, packing, labeling, palletizing</li>
-        </ul>
+  <!-- RFQ: only the fields needed to calculate -->
+  <section id="rfq" class="panel" aria-labelledby="rfq-title">
+    <h2 id="rfq-title" style="margin:0 0 8px">Request a quote</h2>
+    <p class="hint" style="margin:0 0 12px">Send the basics — we’ll come back with exact price & timing.</p>
+    <form action="mailto:sales@nextporthub.com" method="post" enctype="text/plain" style="display:grid;gap:12px">
+      <div class="cols-2">
+        <label>Company / Name
+          <input name="Company" required>
+        </label>
+        <label>Email
+          <input type="email" name="Email" required>
+        </label>
       </div>
-      <div class="panel">
-        <h3>Freight & customs</h3>
-        <ul class="muted">
-          <li>Sea LCL/FCL · Road/rail to EU · Air (urgent)</li>
-          <li>Customs clearance & documents included</li>
-        </ul>
+      <div class="cols-2">
+        <label>Pickup in China (city / factory)
+          <input name="PickupCN" placeholder="Shenzhen / Yiwu / factory address">
+        </label>
+        <label>Destination (country / city)
+          <input name="Destination" placeholder="USA, Los Angeles" required>
+        </label>
       </div>
-      <div class="panel">
-        <h3>Delivery “turnkey”</h3>
-        <ul class="muted">
-          <li>Door delivery, FBA/Shopify 3PL, distribution centers</li>
-          <li>Payments in USD or crypto (USDT/BTC)</li>
-        </ul>
+      <div class="cols-2">
+        <label>Commodity / HS code
+          <input name="Commodity" placeholder="e.g. HS 7323">
+        </label>
+        <label>Weight / Volume
+          <input name="Cargo" placeholder="e.g. 1.2t · 6m³">
+        </label>
       </div>
-    </div>
-    <div style="margin-top:6px">
-      <span class="badge">From 1 ton</span>
-      <span class="badge">CN → US/CA/EU</span>
-      <span class="badge">Docs & insurance assistance</span>
-    </div>
-  </section>
-
-  <!-- RFQ (Request for Quote) – точные данные получаем от клиента -->
-  <section id="rfq" class="panel">
-    <h2>Request a quote</h2>
-    <p class="muted">Send us your shipment details — we’ll calculate exact cost and timing.</p>
-    <div class="cols-2">
-      <!-- Tip: replace action with Zoho Forms/Backend endpoint when ready -->
-      <form action="mailto:sales@nextporthub.com" method="post" enctype="text/plain">
-        <div class="cols-2">
-          <label>Company / Name<br><input name="Company" required></label>
-          <label>Email<br><input type="email" name="Email" required></label>
-        </div>
-        <div class="cols-2">
-          <label>Pickup in China (city/factory)<br><input name="PickupCN" placeholder="Shenzhen / Yiwu / factory address"></label>
-          <label>Destination country & city<br><input name="Destination" placeholder="e.g. USA, Los Angeles" required></label>
-        </div>
-        <div class="cols-2">
-          <label>Commodity / HS code<br><input name="Commodity" placeholder="e.g. kitchenware · HS 7323"></label>
-          <label>Incoterms<br>
-            <select name="Incoterms">
-              <option>FOB</option><option>EXW</option><option>CIF</option><option>Other</option>
-            </select>
-          </label>
-        </div>
-        <div class="cols-2">
-          <label>Weight (t)<br><input name="Weight" placeholder="e.g. 1.2"></label>
-          <label>Volume (m³)<br><input name="Volume" placeholder="e.g. 6"></label>
-        </div>
-        <label>Delivery address / notes<br><textarea name="Notes" placeholder="Delivery address, deadlines, special handling, palletizing…"></textarea></label>
-        <div class="cols-2">
-          <label>Preferred mode<br>
-            <select name="Mode">
-              <option>Sea LCL</option><option>Sea FCL</option><option>Road / Rail (EU)</option><option>Air (urgent)</option>
-            </select>
-          </label>
-          <label>Payment<br>
-            <select name="Payment">
-              <option>USD</option><option>USDT</option><option>BTC</option>
-            </select>
-          </label>
-        </div>
-        <button class="btn btn-primary" type="submit">Send request</button>
+      <label>Notes / delivery address
+        <textarea name="Notes" placeholder="Delivery address, deadline, pallets/boxes…"></textarea>
+      </label>
+      <div class="cols-2">
+        <label>Mode
+          <select name="Mode">
+            <option>Sea LCL</option>
+            <option>Sea FCL</option>
+            <option>Road / Rail (EU)</option>
+            <option>Air (urgent)</option>
+          </select>
+        </label>
+        <label>Payment
+          <select name="Payment">
+            <option>USD</option>
+            <option>USDT</option>
+            <option>BTC</option>
+          </select>
+        </label>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-primary" type="submit">Send</button>
         <a class="btn" href="mailto:sales@nextporthub.com">Write by email</a>
-        <p class="muted" style="margin-top:8px">By sending this form you agree to be contacted regarding your shipment.</p>
-      </form>
-
-      <div class="panel">
-        <h3>What helps us quote faster</h3>
-        <ul class="muted">
-          <li>Exact pickup city / factory contacts</li>
-          <li>Commodity description or HS code</li>
-          <li>Packing list (boxes / pallets) & total m³</li>
-          <li>Target delivery city & access conditions</li>
-          <li>Deadline / preferred mode & budget</li>
-        </ul>
-        <p class="muted">We can assist with documents, insurance and labeling for FBA/3PL.</p>
       </div>
-    </div>
+      <p class="hint">By sending this form you agree to be contacted regarding your shipment.</p>
+    </form>
   </section>
 
-  <section id="contact" class="panel">
-    <h2>Contact us</h2>
-    <p class="muted">Prefer email? We’ll respond within 24 hours.</p>
+  <section class="panel" aria-labelledby="how-title">
+    <h2 id="how-title" style="margin:0 0 8px">How it works</h2>
+    <ul class="hint" style="margin:6px 0 0; padding-left:18px; line-height:1.6">
+      <li>Pickup → consolidation at our CN warehouse</li>
+      <li>Ship: sea (LCL/FCL) · road/rail (EU) · air (urgent)</li>
+      <li>Customs clearance and door delivery included</li>
+    </ul>
+  </section>
+
+  <section class="panel" aria-labelledby="contact-title" id="contact">
+    <h2 id="contact-title" style="margin:0 0 8px">Contacts</h2>
     <div class="cols-2">
-      <div class="panel">
+      <div>
         <p><b>Email:</b> <a href="mailto:sales@nextporthub.com">sales@nextporthub.com</a></p>
-        <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/company/nextporthub">linkedin.com/company/nextporthub</a></p>
-        <p><b>Working hours:</b> Mon–Fri, 09:00–18:00 (EET)</p>
-        <p class="muted">Payments accepted: USD, USDT, BTC.</p>
+        <p><b>Hours:</b> Mon–Fri, 09:00–18:00 (EET)</p>
       </div>
-      <div class="panel">
-        <h3>Why customers choose us</h3>
-        <ul class="muted">
-          <li>One point of contact from pickup to last-mile</li>
-          <li>Own consolidation in China, transparent process</li>
-          <li>Customs clearance included (turnkey)</li>
-        </ul>
+      <div>
+        <p class="hint">Payments accepted: USD, USDT, BTC.</p>
       </div>
     </div>
   </section>
@@ -225,19 +154,18 @@
 
 <footer>
   <div class="wrap foot">
-    <div>© <span id="y"></span> NextPort Hub. All rights reserved.</div>
-    <div class="muted">CN consolidation · Customs · Door delivery</div>
+    <div>© <span id="y"></span> NextPort Hub</div>
+    <div class="hint">Consolidation · Customs · Door delivery</div>
   </div>
 </footer>
 
 <script>
   document.getElementById('y').textContent=new Date().getFullYear();
-  // smooth scroll for in-page anchors
-  document.addEventListener('click', (e)=>{
+  // smooth scroll for anchor links
+  document.addEventListener('click',(e)=>{
     const a=e.target.closest('a[href^="#"]'); if(!a) return;
-    const id=a.getAttribute('href').slice(1);
-    const el=document.getElementById(id);
-    if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+    const id=a.getAttribute('href').slice(1), el=document.getElementById(id);
+    if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
   });
 </script>
 </body>
