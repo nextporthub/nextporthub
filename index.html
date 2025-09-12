@@ -17,10 +17,10 @@
     a{color:inherit;text-decoration:none}
     .wrap{max-width:980px;margin:0 auto;padding:0 18px}
     header{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.75);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
-    .logo{display:flex;align-items:center;gap:12px}
-    .logo img{height:56px;width:auto;border-radius:10px} /* bigger logo */
-    .brand{font-weight:800;font-size:18px;letter-spacing:.2px}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:80px}
+    .logo{display:flex;align-items:center;gap:14px}
+    .logo img{height:80px;width:auto;border-radius:12px} /* BIGGER LOGO */
+    .brand{font-weight:800;font-size:20px;letter-spacing:.2px}
     .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--line)}
     .btn-primary{background:var(--brand);border:none;color:#06361b;font-weight:800}
     main{padding:28px 0 40px}
@@ -38,11 +38,16 @@
     footer{border-top:1px solid var(--line);margin-top:36px}
     .foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:16px 0;color:var(--muted);font-size:13px}
     @media (max-width:900px){
-      .logo img{height:44px}
+      .logo img{height:56px}
       h1{font-size:32px}
       .cols-2{grid-template-columns:1fr}
       .quick{grid-auto-flow:row}
     }
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+    .kpi{border:1px dashed var(--line);border-radius:12px;padding:10px;text-align:center;color:var(--muted)}
+    .res{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+    .res .card{border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}
+    .res .card b{display:block;font-size:18px;margin-bottom:4px}
   </style>
 </head>
 <body>
@@ -67,62 +72,105 @@
       <span class="pill">From 1t</span>
       <span class="pill">Customs included</span>
     </div>
+    <div class="kpis">
+      <div class="kpi">Own CN warehouse</div>
+      <div class="kpi">LCL/FCL · Road/Rail · Air</div>
+      <div class="kpi">FBA / 3PL / Door delivery</div>
+    </div>
     <div style="margin-top:14px">
       <a class="btn btn-primary" href="#rfq">Get a quote</a>
     </div>
   </section>
 
-  <!-- RFQ: only the fields needed to calculate -->
+  <!-- Packaging calculator (from your sheet logic) -->
+  <section class="panel" aria-labelledby="calc-title">
+    <h2 id="calc-title" style="margin:0 0 8px">Packaging calculator</h2>
+    <p class="hint" style="margin:0 0 12px">Enter basic packing data — we’ll auto-compute total weight, volume and number of boxes. These results will be attached to your quote request.</p>
+
+    <div class="cols-2">
+      <div>
+        <label>Product / Description
+          <input id="prod" placeholder="e.g. Garden umbrella 2.7m (no base)">
+        </label>
+        <div class="cols-2">
+          <label>Units (pcs)
+            <input id="units" type="number" min="1" value="108">
+          </label>
+          <label>Weight per unit (kg)
+            <input id="w_unit" type="number" min="0" step="0.01" value="7">
+          </label>
+        </div>
+        <div class="cols-2">
+          <label>Units per box
+            <input id="upb" type="number" min="1" value="1">
+          </label>
+          <label>Boxes (override, optional)
+            <input id="boxes_override" type="number" min="1" placeholder="auto">
+          </label>
+        </div>
+        <div class="cols-2">
+          <label>Box length (cm)
+            <input id="L" type="number" min="0" step="0.1" value="120">
+          </label>
+          <label>Box width (cm)
+            <input id="W" type="number" min="0" step="0.1" value="80">
+          </label>
+        </div>
+        <label>Box height (cm)
+          <input id="H" type="number" min="0" step="0.1" value="135">
+        </label>
+        <p class="hint">Tip: leave “Boxes (override)” empty — мы посчитаем автоматически от <i>Units ÷ Units per box</i>.</p>
+      </div>
+
+      <div>
+        <div class="res">
+          <div class="card">
+            <b id="r_boxes">—</b>
+            <span class="hint">Total boxes (шт)</span>
+          </div>
+          <div class="card">
+            <b id="r_weight">—</b>
+            <span class="hint">Total weight (кг)</span>
+          </div>
+          <div class="card">
+            <b id="r_cbm">—</b>
+            <span class="hint">Total volume (м³)</span>
+          </div>
+        </div>
+        <div class="panel" style="margin-top:12px">
+          <div class="hint" id="preview">Fill the fields to see calculation…</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RFQ: minimal, uses calc results in the email body -->
   <section id="rfq" class="panel" aria-labelledby="rfq-title">
     <h2 id="rfq-title" style="margin:0 0 8px">Request a quote</h2>
     <p class="hint" style="margin:0 0 12px">Send the basics — we’ll come back with exact price & timing.</p>
-    <form action="mailto:sales@nextporthub.com" method="post" enctype="text/plain" style="display:grid;gap:12px">
+    <form id="rfqForm" action="mailto:sales@nextporthub.com" method="post" enctype="text/plain" style="display:grid;gap:12px">
       <div class="cols-2">
         <label>Company / Name
-          <input name="Company" required>
+          <input name="Company" id="f_company" required>
         </label>
         <label>Email
-          <input type="email" name="Email" required>
+          <input type="email" name="Email" id="f_email" required>
         </label>
       </div>
       <div class="cols-2">
         <label>Pickup in China (city / factory)
-          <input name="PickupCN" placeholder="Shenzhen / Yiwu / factory address">
+          <input name="PickupCN" id="f_pickup" placeholder="Shenzhen / Yiwu / factory address">
         </label>
         <label>Destination (country / city)
-          <input name="Destination" placeholder="USA, Los Angeles" required>
-        </label>
-      </div>
-      <div class="cols-2">
-        <label>Commodity / HS code
-          <input name="Commodity" placeholder="e.g. HS 7323">
-        </label>
-        <label>Weight / Volume
-          <input name="Cargo" placeholder="e.g. 1.2t · 6m³">
+          <input name="Destination" id="f_dest" placeholder="USA, Los Angeles" required>
         </label>
       </div>
       <label>Notes / delivery address
-        <textarea name="Notes" placeholder="Delivery address, deadline, pallets/boxes…"></textarea>
+        <textarea name="Notes" id="f_notes" placeholder="Delivery address, deadline, pallets/boxes…"></textarea>
       </label>
-      <div class="cols-2">
-        <label>Mode
-          <select name="Mode">
-            <option>Sea LCL</option>
-            <option>Sea FCL</option>
-            <option>Road / Rail (EU)</option>
-            <option>Air (urgent)</option>
-          </select>
-        </label>
-        <label>Payment
-          <select name="Payment">
-            <option>USD</option>
-            <option>USDT</option>
-            <option>BTC</option>
-          </select>
-        </label>
-      </div>
+
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <button class="btn btn-primary" type="submit">Send</button>
+        <a class="btn btn-primary" id="sendBtn" href="#">Send</a>
         <a class="btn" href="mailto:sales@nextporthub.com">Write by email</a>
       </div>
       <p class="hint">By sending this form you agree to be contacted regarding your shipment.</p>
@@ -161,11 +209,90 @@
 
 <script>
   document.getElementById('y').textContent=new Date().getFullYear();
-  // smooth scroll for anchor links
+
+  // Smooth scroll
   document.addEventListener('click',(e)=>{
     const a=e.target.closest('a[href^="#"]'); if(!a) return;
     const id=a.getAttribute('href').slice(1), el=document.getElementById(id);
     if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+  });
+
+  // Calculator
+  const el = id => document.getElementById(id);
+  const fmt = n => (isFinite(n)? (Math.round(n*100)/100).toLocaleString(): '—');
+
+  function recalc(){
+    const units = +el('units').value || 0;
+    const wUnit = +el('w_unit').value || 0;
+    const upb   = Math.max(1, +el('upb').value || 1);
+    const L = +el('L').value || 0;
+    const W = +el('W').value || 0;
+    const H = +el('H').value || 0;
+    const overrideBoxes = +el('boxes_override').value || null;
+
+    const boxesAuto = Math.ceil(units / upb);
+    const boxes = overrideBoxes && overrideBoxes>0 ? overrideBoxes : boxesAuto;
+    const totalWeight = units * wUnit;
+
+    // CBM per box: cm^3 -> m^3
+    const cbmBox = (L * W * H) / 1e6;
+    const totalCBM = cbmBox * boxes;
+
+    el('r_boxes').textContent  = fmt(boxes);
+    el('r_weight').textContent = fmt(totalWeight);
+    el('r_cbm').textContent    = fmt(totalCBM);
+
+    const prod = el('prod').value || '';
+    el('preview').innerHTML =
+      `<b>Product:</b> ${prod || '—'}<br>` +
+      `<b>Units:</b> ${fmt(units)} · <b>Weight/unit:</b> ${fmt(wUnit)} kg<br>` +
+      `<b>Units/box:</b> ${fmt(upb)} · <b>Boxes:</b> ${fmt(boxes)}<br>` +
+      `<b>Box (cm):</b> ${fmt(L)} × ${fmt(W)} × ${fmt(H)} · <b>CBM/box:</b> ${fmt(cbmBox)} m³<br>` +
+      `<b>Total weight:</b> ${fmt(totalWeight)} kg · <b>Total volume:</b> ${fmt(totalCBM)} m³`;
+  }
+  ['units','w_unit','upb','L','W','H','boxes_override','prod'].forEach(id=>{
+    el(id).addEventListener('input', recalc);
+  });
+  recalc();
+
+  // Compose mailto with calc results
+  el('sendBtn').addEventListener('click',(e)=>{
+    e.preventDefault();
+    recalc();
+    const company = el('f_company').value || '';
+    const email = el('f_email').value || '';
+    const pickup = el('f_pickup').value || '';
+    const dest = el('f_dest').value || '';
+    const notes = el('f_notes').value || '';
+
+    const units = el('units').value, wUnit = el('w_unit').value, upb = el('upb').value;
+    const L = el('L').value, W = el('W').value, H = el('H').value;
+    const boxes = el('r_boxes').textContent, weight = el('r_weight').textContent, cbm = el('r_cbm').textContent;
+    const prod = el('prod').value;
+
+    const body =
+`Company/Name: ${company}
+Email: ${email}
+Pickup in China: ${pickup}
+Destination: ${dest}
+
+PRODUCT
+Name: ${prod}
+Units: ${units}
+Weight per unit (kg): ${wUnit}
+Units per box: ${upb}
+Box (cm): ${L} x ${W} x ${H}
+
+CALC RESULT
+Total boxes: ${boxes}
+Total weight (kg): ${weight}
+Total volume (m³): ${cbm}
+
+Notes:
+${notes}`;
+
+    const mailto = `mailto:sales@nextporthub.com?subject=${encodeURIComponent('Quote request (NextPort Hub)')}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
   });
 </script>
 </body>
