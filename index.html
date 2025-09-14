@@ -1,93 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NextPort Hub – Logistics</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>NextPort Hub — International Freight</title>
+  <meta name="description" content="Door-to-door freight from China to the US, EU & Canada. Consolidation in China, customs clearance, last-mile. LCL/FCL, road/rail (EU) and air.">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="icon" href="images/logo.png">
+  <style>
+    :root{--ink:#0b1220;--panel:#0f172a;--line:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--brand:#b31212}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--ink);color:var(--text)}
+    a{color:inherit;text-decoration:none} img{max-width:100%;height:auto;border-radius:10px}
+    .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+    /* top bar */
+    .util{background:#0f131b;border-bottom:1px solid #0e141f;color:#cbd5e1}
+    .util-in{display:flex;align-items:center;justify-content:space-between;height:42px;gap:12px}
+    .util-in .left,.util-in .right{display:flex;align-items:center;gap:18px;font-size:13px}
+    .call{background:#fff;color:#111827;border-radius:6px;padding:6px 10px;font-weight:700}
+
+    /* nav */
+    header{background:var(--brand);border-bottom:2px solid #5f0b0b}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo img{height:60px;width:auto;border-radius:8px}
+    .tabs a{display:inline-block;padding:10px 14px;border-radius:8px;font-weight:700}
+    .tabs a:hover{background:rgba(255,255,255,.13)}
+
+    /* sections */
+    main{padding-bottom:48px}
+    section{padding:48px 0}
+    h1{margin:0 0 14px;font-size:48px;line-height:1.06}
+    h2{margin:0 0 12px}
+    .sub{color:var(--muted);margin:8px 0 0;line-height:1.7}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .badge{border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:12px;background:#071725;color:#cde6ff}
+
+    /* hero */
+    .hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;overflow:hidden}
+    .hero::before{
+      content:"";position:absolute;inset:0;background:url("images/hero-ship.jpg") center/cover no-repeat;filter:brightness(.55);
+    }
+    .hero::after{
+      content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.1) 0%, rgba(0,0,0,.65) 65%, rgba(0,0,0,.9) 100%);
+    }
+    .hero-in{position:relative;z-index:1;padding:56px 0 72px}
+    .lead{display:inline-block;background:rgba(255,255,255,.92);color:#111827;padding:14px 16px;border-radius:8px;border-left:6px solid var(--brand);max-width:700px}
+
+    /* cards */
+    .card{background:#101a2c;border:1px solid var(--line);border-radius:14px;padding:16px}
+    .btn{display:inline-block;padding:12px 16px;border-radius:10px;border:1px solid #e5e7eb;background:#fff;color:#111827;font-weight:700}
+    .btn-primary{background:var(--brand);border-color:#5f0b0b;color:#fff}
+    .cta{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+
+    footer{border-top:1px solid var(--line);padding:18px 0;color:#9fb0c3}
+    .foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+
+    @media (max-width:1020px){
+      .util-in{flex-wrap:wrap;height:auto;padding:8px 0}
+      .tabs{display:none}
+      .grid,.grid-3{grid-template-columns:1fr}
+      h1{font-size:36px}
+      .logo img{height:52px}
+      .hero{min-height:64vh}
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Hero section -->
-  <section class="hero">
-    <img src="assets/hero-ship.jpg" alt="Cargo ship" class="hero-img">
-    <div class="hero-text">
-      <h1>Reliable Logistics from China to US / Canada / EU</h1>
-      <a href="#quote" class="btn">Request a Quote</a>
-    </div>
-  </section>
-
-  <!-- About section -->
-  <section class="about">
-    <div class="container">
-      <img src="assets/about-ship-bridge.jpg" alt="About NextPort Hub" class="section-img">
-      <div class="text">
-        <h2>About NextPort Hub</h2>
-        <p>We specialize in ocean freight, customs clearance, and last-mile delivery.</p>
+  <!-- utility -->
+  <div class="util">
+    <div class="wrap util-in">
+      <div class="left">
+        <strong>NextPort Hub</strong>
+        <a href="mailto:sales@nextporthub.com">sales@nextporthub.com</a>
+        <a href="tel:+1234567890">+1 (234) 567-890</a>
+      </div>
+      <div class="right">
+        <a href="https://www.linkedin.com/company/nextporthub" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="call" href="#contact">CALL ME</a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Why choose us -->
-  <section class="why">
-    <div class="container">
-      <img src="assets/whychooseus-port.jpg" alt="Port logistics" class="section-img">
-      <div class="text">
-        <h2>Why Choose Us</h2>
-        <ul>
-          <li>Consolidation from China</li>
-          <li>Door-to-door delivery</li>
-          <li>Flexible payment (USD / USDT / BTC)</li>
-        </ul>
+  <!-- nav -->
+  <header>
+    <div class="wrap nav">
+      <div class="logo">
+        <img src="images/logo.png" alt="NextPort Hub logo">
       </div>
+      <nav class="tabs">
+        <a href="#services">Services</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#process">How it works</a>
+        <a href="#why">Why us</a>
+        <a href="#contact">Contacts</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- Services -->
-  <section class="services">
-    <div class="container">
-      <img src="assets/services-containers-top.jpg" alt="Containers services" class="section-img">
-      <div class="text">
-        <h2>Our Services</h2>
-        <p>Freight forwarding, warehousing, customs brokerage, and delivery across US, Canada, and EU.</p>
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home" role="banner" aria-label="Hero">
+      <div class="wrap hero-in">
+        <h1>International Freight Shipping</h1>
+        <div class="lead">We transport cargo with consolidation in China, customs clearance and last-mile delivery to the US, EU & Canada.</div>
+        <div class="cta">
+          <a class="btn-primary btn" href="#contact">Contact sales</a>
+          <a class="btn" href="#services">See services</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Process -->
-  <section class="process">
-    <div class="container">
-      <img src="assets/process-port-top.jpg" alt="Logistics process" class="section-img">
-      <div class="text">
-        <h2>Our Process</h2>
-        <p>Step by step cargo management — from pick-up in China to door delivery abroad.</p>
+    <!-- ABOUT -->
+    <section id="about" class="wrap">
+      <div class="panel grid" style="align-items:center">
+        <div>
+          <h2>About us</h2>
+          <p class="sub">NextPort Hub is a logistics team focused on door-to-door shipments from China. One point of contact, transparent milestones, customs included.</p>
+          <div class="badges">
+            <span class="badge">China → US/EU/CA</span>
+            <span class="badge">Customs included</span>
+            <span class="badge">FBA / 3PL / Door</span>
+          </div>
+        </div>
+        <img src="images/about-ship-bridge.jpg" alt="Container ship passing a bridge" loading="lazy" width="1600" height="900">
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Details -->
-  <section class="details">
-    <div class="container">
-      <img src="assets/detail-containers.jpg" alt="Containers detail" class="section-img">
-      <div class="text">
-        <h2>Detailed Freight Options</h2>
-        <p>We offer multiple consolidation and shipment solutions based on your cargo size and timeline.</p>
+    <!-- SERVICES -->
+    <section id="services" class="wrap">
+      <div class="panel">
+        <h2>Services</h2>
+        <div class="grid">
+          <img src="images/services-containers-top.jpg" alt="Containers from above" loading="lazy" width="1600" height="900">
+          <div class="card">
+            <h3>Consolidation in China</h3>
+            <p class="sub">Inbound from 1688/Alibaba/factories, inspection, labeling, packing, palletizing, multi-supplier consolidation into one lot.</p>
+            <h3 style="margin-top:14px">Freight & customs</h3>
+            <p class="sub">Sea LCL/FCL · Road/Rail (EU) · Air (urgent). Customs clearance & documentation. Insurance support upon request.</p>
+            <h3 style="margin-top:14px">Last-mile delivery</h3>
+            <p class="sub">Door, 3PL/DC, FBA appointments. Time windows & access coordination. Payments: USD / USDT / BTC.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contacts -->
-  <section class="contacts" id="quote">
-    <div class="container">
-      <img src="assets/contacts-ship.jpg" alt="Contact NextPort Hub" class="section-img">
-      <div class="text">
-        <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:sales@nextporthub.com">sales@nextporthub.com</a></p>
-        <p>Phone: PHONE</p>
-        <p>Working hours: Mon–Fri 09:00–18:00 (EET)</p>
+    <!-- COVERAGE -->
+    <section id="coverage" class="wrap">
+      <div class="panel grid">
+        <div class="card">
+          <h2>Coverage</h2>
+          <p class="sub">Origin hubs: Shenzhen, Guangzhou, Yiwu, Ningbo, Shanghai. Regional pickup on request. Destinations across the US, EU & Canada.</p>
+        </div>
+        <img src="images/whychooseus-port.jpg" alt="Port cranes and stacks" loading="lazy" width="1600" height="900">
       </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- PROCESS -->
+    <section id="process" class="wrap">
+      <div class="panel">
+        <h2>How it works</h2>
+        <div class="grid-3">
+          <div class="card">
+            <img src="images/process-port-top.jpg" alt="Port top view" loading="lazy" width="1600" height="900">
+            <h3 style="margin:10px 0 6px">1) Pickup → CN warehouse</h3>
+            <p class="sub">We receive from suppliers, inspect, label, pack & consolidate.</p>
+          </div>
+          <div class="card">
+            <img src="images/detail-containers.jpg" alt="Container details" loading="lazy" width="1400" height="800">
+            <h3 style="margin:10px 0 6px">2) Ship</h3>
+            <p class="sub">Sea LCL/FCL to US/EU/CA; road/rail for EU lanes; air for urgent cargo.</p>
+          </div>
+          <div class="card">
+            <img src="images/contacts-ship.jpg" alt="Ship at berth" loading="lazy" width="1600" height="900">
+            <h3 style="margin:10px 0 6px">3) Customs & last-mile</h3>
+            <p class="sub">Customs included. Final delivery to door, 3PL or FBA.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section id="why" class="wrap">
+      <div class="panel grid">
+        <div class="card">
+          <h2>Why choose us</h2>
+          <ul class="sub" style="margin:10px 0 0; padding-left:18px; line-height:1.8">
+            <li>Single responsibility — one team from pickup to last-mile</li>
+            <li>Transparent process — clear milestones & updates</li>
+            <li>Flexible payments — USD, USDT, BTC</li>
+          </ul>
+        </div>
+        <img src="images/whychooseus-port.jpg" alt="Modern container terminal" loading="lazy" width="1600" height="900">
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contact" class="wrap">
+      <div class="panel grid" style="align-items:center">
+        <img src="images/contacts-ship.jpg" alt="Container ship in port" loading="lazy" width="1600" height="900">
+        <div class="card">
+          <h2>Contacts</h2>
+          <p class="sub"><b>Email:</b> <a href="mailto:sales@nextporthub.com">sales@nextporthub.com</a><br>
+          <b>Hours:</b> Mon–Fri, 09:00–18:00 (EET)</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="mailto:sales@nextporthub.com">Request a quote</a>
+            <a class="btn" href="#services">See services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>© <span id="y"></span> NextPort Hub</div>
+      <div>Consolidation · Customs · Door delivery</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // smooth scroll
+    document.addEventListener('click',(e)=>{
+      const a=e.target.closest('a[href^="#"]'); if(!a) return;
+      const id=a.getAttribute('href').slice(1), el=document.getElementById(id);
+      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+    });
+  </script>
 </body>
 </html>
