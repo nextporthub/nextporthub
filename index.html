@@ -1,298 +1,373 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nextport Hub — International freight & sourcing from China</title>
-  <meta name="description" content="International freight, supplier sourcing, inspections, repacking, and CN marketplace buyouts. USA • Europe • Canada." />
-  <link rel="icon" href="/assets/logo.webp" type="image/webp" />
-  <meta name="theme-color" content="#111827" />
+  <title>Nextport Hub — International Cargo & Customs</title>
+  <meta name="description" content="International shipping from China to USA/EU/Canada. Supplier search, negotiation, inspections, repacking, customs clearance, bank & crypto payments." />
+
+  <!-- Favicon: сначала webp, затем png как запасной вариант -->
+  <link rel="icon" type="image/webp" href="/assets/logo.webp" />
+  <link rel="icon" type="image/png"  href="/assets/logo.png" />
+
   <style>
     :root{
-      --bg:#0b1220;--ink:#0f172a;--ink-2:#334155;--muted:#6b7280;
-      --brand:#b31212;--paper:#ffffff;--shell:#f1f5f9;
-      --max:1180px;--radius:14px
+      --bg:#0f172a;         /* slate-900 */
+      --text:#0f172a;       /* slate-900 */
+      --text-weak:#334155;  /* slate-600 */
+      --muted:#64748b;      /* slate-500/600 */
+      --brand:#b1362a;      /* фирменный красный */
+      --card:#f8fafc;       /* slate-50 */
+      --border:#e2e8f0;     /* slate-200 */
+      --white:#fff;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;scroll-behavior:smooth}
+    html,body{margin:0;padding:0;font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;color:var(--text);background:#fff}
+    img{display:block;max-width:100%;height:auto}
     a{color:inherit}
-    .wrap{max-width:var(--max);margin-inline:auto;padding:0 20px}
-    /* header */
-    header{position:sticky;top:0;z-index:50;background:#0c1321d4;backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid #0f1a33}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
-    .brand img{width:44px;height:44px;border-radius:10px}
-    .brand span{font-weight:800;letter-spacing:.3px}
-    .menu{display:flex;gap:18px}
-    .menu a{color:#e5e7eb;text-decoration:none;font-weight:600}
-    .menu a:hover{color:#fff}
-    .burger{display:none;background:none;border:0;color:#fff;font-size:28px}
-    @media (max-width:860px){
-      .menu{display:none}
-      .burger{display:block}
-      .menu.open{position:absolute;left:0;right:0;top:60px;background:#0c1321fd;display:grid;gap:10px;padding:14px 20px;border-bottom:1px solid #0f1a33}
+    .container{max-width:1140px;margin:0 auto;padding:0 16px}
+
+    /* Topbar */
+    .topbar{
+      background:var(--bg);
+      color:#e2e8f0;
+      font-size:14px;
     }
-    /* hero */
+    .topbar__inner{
+      display:flex;align-items:center;gap:14px;justify-content:space-between;padding:8px 0;
+    }
+    .topbar__left,.topbar__right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+    .pill{
+      border:1px solid #334155;border-radius:9999px;padding:6px 12px;white-space:nowrap;
+      color:#e5e7eb;text-decoration:none;
+      transition:all .2s ease;
+      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.12));
+      backdrop-filter:saturate(120%) blur(2px);
+    }
+    .pill:hover{border-color:#94a3b8; transform:translateY(-1px)}
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--border)
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0;
+    }
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .brand__title{font-weight:800;letter-spacing:.3px}
+    .brand__sub{font-size:12px;color:var(--muted);margin-top:-4px}
+
+    .nav__menu{display:flex;gap:18px;flex-wrap:wrap}
+    .btn{
+      background:var(--brand);color:#fff;border:none;border-radius:10px;padding:10px 16px;
+      font-weight:600;cursor:pointer;transition:all .2s ease;text-decoration:none;display:inline-block
+    }
+    .btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+    .btn--ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+    .btn--ghost:hover{border-color:#cbd5e1}
+
+    /* Hero */
     .hero{
-      position:relative;min-height:70svh;display:grid;align-items:center;color:#fff;isolation:isolate
+      position:relative;isolation:isolate;color:#fff
     }
-    .hero::before{
-      content:"";position:absolute;inset:0;background:
-       radial-gradient(1200px 600px at 20% 20%, #0006 0%, #000b 60%, #000e 100%),
-       url("/assets/hero-ship.webp") center/cover no-repeat;
-      z-index:-2
+    .hero__media img{
+      width:100%;
+      /* Соотношение: поставьте точные величины, если знаете (например 2048/1152) */
+      aspect-ratio: 16/9;
+      object-fit:cover;
     }
-    .hero .wrap{padding:84px 20px}
-    .hero .lead{max-width:840px}
-    .logo-big{width:min(160px,30vw);height:auto;margin-bottom:18px;filter:drop-shadow(0 6px 30px #0008)}
-    .h1{font-size:clamp(34px,6vw,52px);font-weight:900;line-height:1.05;margin:0 0 10px}
-    .sub{color:#d1d5db;max-width:660px;margin:0 0 22px}
-    .cta{display:inline-flex;gap:10px;align-items:center;background:#ffffff;color:#111827;padding:12px 16px;border-radius:999px;text-decoration:none;font-weight:800}
-    .cta--ghost{background:transparent;border:1.5px solid #cbd5e1;color:#fff}
-    /* section scaffold */
+    .hero__overlay{
+      position:absolute;inset:0;z-index:-1;
+      background:
+        radial-gradient(100% 120% at 70% 10%, rgba(0,0,0,.35) 0%, rgba(0,0,0,.50) 60%, rgba(0,0,0,.65) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.65) 100%);
+    }
+    .hero__content{
+      position:absolute;inset:0;display:grid;place-items:center;text-align:left;
+      padding:64px 16px
+    }
+    .hero__box{max-width:880px}
+    .kicker{
+      display:inline-block;margin-bottom:10px;padding:6px 10px;border-radius:9999px;
+      background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px);
+      font-weight:600;letter-spacing:.4px
+    }
+    .h1{
+      margin:8px 0 14px;font-size:clamp(28px,6vw,54px);line-height:1.05;font-weight:900;
+      text-shadow:0 2px 22px rgba(0,0,0,.35)
+    }
+    .lead{
+      color:#e2e8f0;max-width:740px;margin-bottom:18px
+    }
+    .hero__cta{display:flex;gap:12px;flex-wrap:wrap}
+
+    /* Sections */
     section{padding:56px 0}
-    .sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 20px}
-    .eyebrow{color:var(--brand);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
-    .h2{font-size:clamp(26px,4.5vw,40px);margin:0;font-weight:900}
-    .muted{color:var(--muted)}
-    /* About / Why */
-    .two-col{display:grid;gap:26px}
-    @media (min-width:980px){.two-col{grid-template-columns:1.05fr .95fr}}
-    .card{background:var(--shell);border-radius:var(--radius);padding:18px}
-    .imgbox{overflow:hidden;border-radius:var(--radius)}
-    .imgbox img{width:100%;height:auto;display:block}
-    .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
-    .kpi{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:14px;text-align:center}
-    .kpi b{display:block;font-size:20px}
-    /* Services (from previous step) */
-    .services-list{padding-top:10px}
-    .services-grid{display:grid;gap:40px 36px;align-items:start}
-    @media (min-width:900px){.services-grid{grid-template-columns:1fr 1fr}}
-    .service{display:grid;grid-template-columns:98px 1fr;gap:16px}
-    .service-num{position:relative;width:98px;height:98px;display:flex;align-items:center;justify-content:center;font:700 44px/1 "Oswald",system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#2b2b2b;letter-spacing:1px}
-    .service-num::before{content:"";position:absolute;inset:0;border-radius:10px;background:#eceeef;transform:translate(10px,10px);z-index:-1}
-    .service-num::after{content:"";position:absolute;right:8px;top:16px;bottom:16px;width:4px;background:var(--brand);border-radius:2px}
-    .service-title{margin:0 0 8px;font:800 22px/1.25 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#111827}
-    .service-text{margin:0;color:#374151}
-    .services-note{margin-top:12px;color:#6b7280}
-    /* Process */
-    .steps{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .step{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff}
-    .step b{color:var(--brand)}
+    .section__title{font-size:clamp(22px,3.5vw,34px);font-weight:800;margin:0 0 22px}
+    .muted{color:var(--text-weak)}
+    .grid{display:grid;gap:22px}
+    @media(min-width:900px){.grid--2{grid-template-columns:1.15fr .85fr}.grid--3{grid-template-columns:repeat(3,1fr)}}
+
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .services__num{
+      font-size:48px;font-weight:900;color:#111827;opacity:.12;line-height:1;margin-bottom:2px
+    }
+
     /* Contact */
-    .contact{background:linear-gradient(180deg,#f8fafc,#ffffff)}
-    .contact-grid{display:grid;gap:28px}
-    @media (min-width:900px){.contact-grid{grid-template-columns:1.1fr .9fr}}
-    .contact .card{background:#fff}
-    label{display:block;margin:10px 0 6px;font-weight:600}
-    input,textarea{width:100%;padding:12px 14px;border:1px solid #d1d5db;border-radius:10px;font:inherit}
-    textarea{min-height:120px;resize:vertical}
-    .btn{background:var(--brand);color:#fff;border:0;padding:12px 16px;border-radius:10px;font-weight:800;cursor:pointer}
-    /* footer */
-    footer{background:#0b1220;color:#cbd5e1;padding:26px 0}
-    footer a{color:#fff}
+    .contact{
+      border-top:1px solid var(--border);background:#fff;
+    }
+    .contact .card{padding:18px}
+    .footer{border-top:1px solid var(--border);padding:18px 0;color:var(--muted);font-size:14px}
   </style>
 </head>
 <body>
 
+  <!-- Top bar (контрастная и читабельная) -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__left">
+        <span>International cargo • USA • EU • Canada</span>
+        <a class="pill" href="mailto:sales@nextporthub.com">sales@nextporthub.com</a>
+      </div>
+      <div class="topbar__right">
+        <a class="pill" href="#contact">Request a quote</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Header -->
   <header>
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Nextport Hub">
-        <img src="/assets/logo.webp" width="44" height="44" alt="Nextport Hub logo" decoding="async" />
-        <span>NEXTPORTHUB</span>
+    <div class="container nav">
+      <a class="brand" href="/">
+        <picture>
+          <source srcset="/assets/logo.webp" type="image/webp" />
+          <img src="/assets/logo.png" alt="Nextport Hub" width="40" height="40" style="border-radius:10px;box-shadow:0 3px 18px rgba(0,0,0,.08)" />
+        </picture>
+        <div>
+          <div class="brand__title">Nextport Hub</div>
+          <div class="brand__sub">International cargo & customs</div>
+        </div>
       </a>
-      <button class="burger" aria-label="Open menu" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
-      <nav class="menu" aria-label="Main">
-        <a href="#services">Services</a>
-        <a href="#why">Why us</a>
-        <a href="#process">Process</a>
-        <a href="#about">About</a>
-        <a href="#contacts">Contacts</a>
+      <nav class="nav__menu">
+        <a class="btn btn--ghost" href="#services">Services</a>
+        <a class="btn btn--ghost" href="#about">About</a>
+        <a class="btn" href="#contact">Get a quote</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero" id="top">
-    <div class="wrap">
-      <img class="logo-big" src="/assets/logo.webp" width="340" height="340" alt="Nextport Hub" />
-      <div class="lead">
-        <h1 class="h1">International cargo delivery & supplier services</h1>
-        <p class="sub">From China to the USA, Europe and Canada. Sourcing, negotiations, inspections, repacking, CN marketplace buyouts and end-to-end logistics.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a class="cta" href="#contacts">Request a quote</a>
-          <a class="cta cta--ghost" href="#services">Explore services</a>
+  <section class="hero" aria-label="Hero">
+    <div class="hero__media">
+      <img src="/assets/hero-ship.webp" alt="Container ship at port" loading="eager" decoding="async" />
+    </div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__content">
+      <div class="hero__box">
+        <span class="kicker">International Freight Forwarding</span>
+        <h1 class="h1">Door-to-door shipping from China to USA, EU and Canada</h1>
+        <p class="lead">Supplier sourcing and negotiation, product checks and repacking, customs clearance,
+           bank wires and crypto (USDT/BTC). Clear pricing and reliable transit.</p>
+        <div class="hero__cta">
+          <a class="btn" href="#contact">Request a quote</a>
+          <a class="btn btn--ghost" href="#services">View services</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About + Why -->
+  <!-- About -->
   <section id="about">
-    <div class="wrap two-col">
+    <div class="container grid grid--2">
       <div>
-        <div class="sec-head"><span class="eyebrow">About</span><h2 class="h2">Who we are</h2></div>
-        <div class="imgbox">
-          <img src="/assets/about-ship-bridge.webp" width="1160" height="700" alt="Container ship passing a bridge" loading="lazy" />
-        </div>
-        <p class="muted" style="margin-top:12px">We help brands and SMEs move goods reliably: supplier search, purchase consolidation, export paperwork, sea/rail/air delivery and final-mile options.</p>
-        <div class="kpis">
-          <div class="kpi"><b>8+</b><small>years CN trade</small></div>
-          <div class="kpi"><b>12K+</b><small>parcels & pallets</small></div>
-          <div class="kpi"><b>40+</b><small>partner carriers</small></div>
-        </div>
+        <h2 class="section__title">About Nextport Hub</h2>
+        <p class="muted">We help SMEs ship safely and predictably. We handle negotiations with suppliers,
+          verify goods, repack when needed, prepare customs documents and deliver to your door.</p>
+        <ul class="muted" style="line-height:1.7">
+          <li>Supplier search & negotiations in China</li>
+          <li>Photo/video checks and repacking for safe transit</li>
+          <li>Customs clearance and brokerage</li>
+          <li>Bank transfers or crypto (USDT/BTC) with paperwork</li>
+        </ul>
       </div>
-      <div id="why">
-        <div class="sec-head"><span class="eyebrow">Why us</span><h2 class="h2">What makes us different</h2></div>
-        <div class="card">
-          <img src="/assets/whychooseus-port.webp" width="1120" height="700" alt="Port infrastructure" class="imgbox" loading="lazy" />
-          <ul style="margin:14px 0 0;padding-left:18px;line-height:1.6">
-            <li>Clear pricing without hidden fees</li>
-            <li>Fast checks, photo/video proof, repacking if needed</li>
-            <li>Bank wires or crypto (USDT/BTC) with invoices</li>
-            <li>USA • EU • Canada lanes. DDP/DDU options</li>
-          </ul>
+      <div class="card">
+        <picture>
+          <source srcset="/assets/about-ship-bridge.webp" type="image/webp" />
+          <img src="/assets/about-ship-bridge.webp"
+               alt="Container ship near the bridge"
+               loading="lazy" decoding="async"
+               style="width:100%;aspect-ratio: 1264/768; border-radius:10px" />
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why choose us -->
+  <section>
+    <div class="container grid grid--2">
+      <div class="card">
+        <picture>
+          <source srcset="/assets/whychooseus-port.webp" type="image/webp" />
+          <img src="/assets/whychooseus-port.webp"
+               alt="Port infrastructure"
+               loading="lazy" decoding="async"
+               style="width:100%;aspect-ratio: 2048/1369;border-radius:10px" />
+        </picture>
+        <ul style="margin:14px 0 0;padding-left:18px;line-height:1.65" class="muted">
+          <li>Clear pricing without hidden fees</li>
+          <li>Fast checks, photo/video proof, repacking if needed</li>
+          <li>Bank wires or crypto (USDT/BTC) with invoices</li>
+          <li>USA • EU • Canada lanes. DDP/DDU options</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="section__title">Why shippers choose us</h2>
+        <p class="muted">We keep communication simple, paperwork clean and deliveries predictable.
+          You get one point of contact from quotation to delivery.</p>
+        <div class="grid">
+          <div class="card"><h3>On-time delivery</h3><p class="muted">Stable partners and realistic ETAs.</p></div>
+          <div class="card"><h3>Careful handling</h3><p class="muted">Extra repacking and padding if needed.</p></div>
+          <div class="card"><h3>Customs ready</h3><p class="muted">All documents prepared and reviewed.</p></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services" class="services-list">
-    <div class="wrap">
-      <div class="sec-head"><span class="eyebrow">Services</span><h2 class="h2">Everything you need in one flow</h2></div>
+  <section id="services">
+    <div class="container">
+      <h2 class="section__title">Our Services</h2>
 
-      <div class="services-grid">
-        <!-- 01 -->
-        <article class="service">
-          <div class="service-num">01</div>
-          <div>
-            <h3 class="service-title">Supplier Negotiations</h3>
-            <p class="service-text">We confirm pricing, packing, INCOTERMS, lead-times and payment terms with your supplier. We keep you updated at every step.</p>
-          </div>
-        </article>
+      <div class="grid grid--3">
 
-        <!-- 02 -->
-        <article class="service">
-          <div class="service-num">02</div>
-          <div>
-            <h3 class="service-title">Inspection &amp; Re-packaging</h3>
-            <p class="service-text">Visual checks, carton measurements, photos/videos. Repacking on request to ensure safety for international transport.</p>
-          </div>
-        </article>
+        <div class="card">
+          <div class="services__num">01</div>
+          <h3>Supplier negotiation</h3>
+          <p class="muted">We negotiate pricing, lead times, packing, warranty and payment terms on your behalf.</p>
+        </div>
 
-        <!-- 03 -->
-        <article class="service">
-          <div class="service-num">03</div>
-          <div>
-            <h3 class="service-title">Buyout from CN Marketplaces</h3>
-            <p class="service-text">Purchases from 1688 / Taobao / JD with consolidation, export docs and delivery to your warehouse or FBA.</p>
-          </div>
-        </article>
+        <div class="card">
+          <div class="services__num">02</div>
+          <h3>Inspection & repacking</h3>
+          <p class="muted">Photo/video checks and repacking to increase safety during transport or storage.</p>
+        </div>
 
-        <!-- 04 -->
-        <article class="service">
-          <div class="service-num">04</div>
-          <div>
-            <h3 class="service-title">Supplier Sourcing in China</h3>
-            <p class="service-text">Market research, background checks, sampling and contract alignment. We coordinate factory communication for you.</p>
-          </div>
-        </article>
+        <div class="card">
+          <div class="services__num">03</div>
+          <h3>Purchasing from CN websites</h3>
+          <p class="muted">We handle search, ordering and consolidation from Chinese platforms and factories.</p>
+        </div>
 
-        <!-- 05 -->
-        <article class="service">
-          <div class="service-num">05</div>
-          <div>
-            <h3 class="service-title">International Money Transfers</h3>
-            <p class="service-text">Fast and secure payments to China, UAE and EU via bank transfer or crypto (USDT/BTC). Invoices and confirmations provided.</p>
-          </div>
-        </article>
+        <div class="card">
+          <div class="services__num">04</div>
+          <h3>Supplier sourcing in China</h3>
+          <p class="muted">We research reliable factories, verify reputation and align co-operation terms.</p>
+        </div>
+
+        <div class="card">
+          <div class="services__num">05</div>
+          <h3>International payments</h3>
+          <p class="muted">Bank wires and crypto (USDT/BTC) via trusted channels with proper documents.</p>
+        </div>
+
+        <div class="card">
+          <div class="services__num">06</div>
+          <h3>Customs & last mile</h3>
+          <p class="muted">Brokerage, duties and taxes calculation, delivery to your warehouse or door.</p>
+        </div>
+
       </div>
 
-      <p class="services-note">Need FBA appointments, 3PL or insurance? — <a href="#contacts">Contact us</a> and we’ll tailor the flow.</p>
-
-      <div class="imgbox" style="margin-top:18px">
-        <img src="/assets/services-containers-top.webp" width="1160" height="700" alt="Containers view" loading="lazy" />
+      <div class="card" style="margin-top:18px">
+        <picture>
+          <source srcset="/assets/services-containers-top.webp" type="image/webp" />
+          <img src="/assets/services-containers-top.webp"
+               alt="Containers at port from top"
+               loading="lazy" decoding="async"
+               style="width:100%;aspect-ratio: 1367/768;border-radius:10px" />
+        </picture>
       </div>
     </div>
   </section>
 
   <!-- Process -->
-  <section id="process">
-    <div class="wrap">
-      <div class="sec-head"><span class="eyebrow">Process</span><h2 class="h2">How it works</h2></div>
-
-      <div class="steps">
-        <div class="step"><b>01 Request</b><br />Send specs or a PO. We confirm route &amp; terms.</div>
-        <div class="step"><b>02 Purchase</b><br />We negotiate and buy or coordinate with your supplier.</div>
-        <div class="step"><b>03 Prep</b><br />Inspection, repacking, export docs, labeling if needed.</div>
-        <div class="step"><b>04 Ship</b><br />Sea/rail/air or combined DDP/DDU to your country.</div>
-        <div class="step"><b>05 Deliver</b><br />Customs &amp; last-mile to your door / FBA / 3PL.</div>
+  <section>
+    <div class="container grid grid--2">
+      <div>
+        <h2 class="section__title">Process</h2>
+        <ol class="muted" style="line-height:1.8;padding-left:18px">
+          <li>Share item list & volumes → get a clear quote</li>
+          <li>We contact suppliers, check and repack (if needed)</li>
+          <li>We prepare customs docs → you approve</li>
+          <li>Transport, tracking, delivery to your address</li>
+        </ol>
       </div>
-
-      <div class="imgbox" style="margin-top:18px">
-        <img src="/assets/process-port-top.webp" width="1160" height="700" alt="Port process" loading="lazy" />
+      <div class="card">
+        <picture>
+          <source srcset="/assets/process-port-top.webp" type="image/webp" />
+          <img src="/assets/process-port-top.webp"
+               alt="Port process view from top"
+               loading="lazy" decoding="async"
+               style="width:100%;aspect-ratio: 1148/768;border-radius:10px" />
+        </picture>
       </div>
     </div>
   </section>
 
-  <!-- Detail image band -->
-  <section aria-hidden="true" style="padding:0">
-    <img src="/assets/detail-containers.webp" width="1920" height="880" alt="" loading="lazy" style="display:block;width:100%;height:auto" />
+  <!-- Detail band image -->
+  <section style="padding-top:0">
+    <div class="container card">
+      <picture>
+        <source srcset="/assets/detail-containers.webp" type="image/webp" />
+        <img src="/assets/detail-containers.webp"
+             alt="Container details"
+             loading="lazy" decoding="async"
+             style="width:100%;aspect-ratio: 1152/768;border-radius:10px" />
+      </picture>
+    </div>
   </section>
 
   <!-- Contact -->
-  <section id="contacts" class="contact">
-    <div class="wrap contact-grid">
+  <section id="contact" class="contact">
+    <div class="container grid grid--2">
       <div>
-        <div class="sec-head"><span class="eyebrow">Contact</span><h2 class="h2">Request a quote</h2></div>
-        <div class="card">
-          <form action="https://formspree.io/f/xbldqyyy" method="POST">
-            <label for="name">Name / Company</label>
-            <input id="name" name="name" required />
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required />
-            <label for="msg">Cargo details</label>
-            <textarea id="msg" name="message" placeholder="Origin city, destination, HS code (if known), weight/volume, ready date…"></textarea>
-            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-              <button class="btn" type="submit">Send</button>
-              <a class="cta cta--ghost" href="mailto:sales@nextporthub.com">sales@nextporthub.com</a>
-            </div>
-          </form>
+        <h2 class="section__title">Request a quote</h2>
+        <p class="muted">Send us your item list (name, link, qty, weight/volume), pickup and destination. We’ll reply with a clear offer and ETA.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+          <a class="btn" href="mailto:sales@nextporthub.com?subject=Quote%20request">sales@nextporthub.com</a>
+          <a class="btn btn--ghost" href="https://nextporthub.com/#contact">Live chat</a>
         </div>
       </div>
-      <div>
-        <div class="imgbox">
-          <img src="/assets/contacts-ship.webp" width="1160" height="700" alt="Harbor at sunset" loading="lazy" />
-        </div>
-        <p class="muted" style="margin-top:10px">Mon–Fri 09:00–18:00 (EET). USA • EU • Canada lanes covered.</p>
+      <div class="card">
+        <picture>
+          <source srcset="/assets/contacts-ship.webp" type="image/webp" />
+          <img src="/assets/contacts-ship.webp"
+               alt="Ship at port — contact us"
+               loading="lazy" decoding="async"
+               style="width:100%;aspect-ratio: 1151/768;border-radius:10px" />
+        </picture>
+        <ul class="muted" style="margin:10px 0 0;padding-left:18px;line-height:1.7">
+          <li>Mon–Fri 09:00–18:00 (EET)</li>
+          <li>USA • EU • Canada lanes</li>
+          <li>CN consolidation • Customs clearance • Door delivery</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="wrap" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
-      <div style="display:flex;gap:10px;align-items:center">
-        <img src="/assets/logo.webp" width="28" height="28" alt="" />
-        <b>NEXTPORTHUB</b>
-      </div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <a href="#services">Services</a>
-        <a href="#why">Why us</a>
-        <a href="#process">Process</a>
-        <a href="#about">About</a>
-        <a href="#contacts">Contacts</a>
-      </div>
-      <small>© <span id="y"></span> Nextport Hub</small>
+  <footer class="footer">
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="y"></span> Nextport Hub</div>
+      <div class="muted">Clear pricing • Reliable transit • One contact point</div>
     </div>
   </footer>
 
   <script>
-    // current year
+    // Год в футере
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
