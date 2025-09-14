@@ -1,33 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>NextPort Hub — Freight from China to the US, EU & Canada</title>
-  <meta name="description" content="Door-to-door freight from China for the US, EU and Canada. Consolidation in China, customs clearance, last-mile delivery. LCL/FCL, road/rail (EU) and air. From 1 ton.">
+  <meta name="description" content="Door-to-door freight from China. Consolidation in China, customs clearance, and last-mile delivery. LCL/FCL, road/rail (EU), and air. From 1 ton. USD/USDT/BTC.">
   <meta name="theme-color" content="#0b1220">
   <link rel="icon" href="/assets/favicon.png">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="NextPort Hub — Freight China → US/EU/CA">
-  <meta property="og:description" content="Consolidation in China, customs, last-mile. LCL/FCL, road/rail (EU) & air. From 1 ton.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://nextporthub.com/">
-  <meta property="og:image" content="https://nextporthub.com/assets/og.png">
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"NextPort Hub",
-    "url":"https://nextporthub.com",
-    "logo":"https://nextporthub.com/assets/logo.png",
-    "areaServed":["US","EU","CA"],
-    "contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"sales@nextporthub.com"}]
-  }
-  </script>
-
   <style>
     :root{
       --bg:#0b1220; --panel:#0f172a; --line:#1e293b;
@@ -36,35 +15,32 @@
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0b1220;color:var(--text)}
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1140px;margin:0 auto;padding:0 18px}
+    .wrap{max-width:1200px;margin:0 auto;padding:0 18px}
 
     header{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.75);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:88px}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:96px}
     .logo{display:flex;align-items:center;gap:14px}
-    .logo img{height:88px;width:auto;border-radius:12px} /* BIG logo */
+    .logo img{height:96px;width:auto;border-radius:14px} /* BIG logo */
     .brand{font-weight:800;font-size:20px;letter-spacing:.2px}
     nav a{display:inline-block;padding:10px 14px;border:1px solid var(--line);border-radius:12px;margin-left:8px}
 
-    main{padding:28px 0 40px}
-    h1{margin:0 0 10px;font-size:42px;line-height:1.1}
+    main{padding:24px 0 48px}
+    h1{margin:0 0 10px;font-size:44px;line-height:1.1}
     h2{margin:0 0 10px}
-    .sub{color:var(--muted);margin:0 0 14px;max-width:780px}
-    .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--muted);font-size:13px;margin:0 6px 6px 0}
-    .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
-    .cols-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .sub{color:var(--muted);margin:0 0 14px;max-width:820px}
+
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+    .cols-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .cols-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+    .badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:12px;color:#bae6fd;background:#071725;margin-right:6px;margin-bottom:6px}
+    .card{background:#0e172a;border:1px solid var(--line);border-radius:14px;padding:16px}
     .list{color:var(--muted);line-height:1.7;margin:8px 0 0;padding-left:18px}
+
     .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--line)}
     .btn-primary{background:var(--brand);border:none;color:#06361b;font-weight:800}
     .btn-ghost{border-style:dashed}
-
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .step{border:1px dashed var(--line);border-radius:12px;padding:14px}
-    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-    .badge{border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:12px;color:#bae6fd;background:#071725}
-
-    .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .fact{border:1px dashed var(--line);border-radius:12px;padding:12px;text-align:center;color:var(--muted)}
 
     input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0c1323;color:var(--text);outline:0}
     textarea{min-height:100px;resize:vertical}
@@ -72,10 +48,10 @@
     footer{border-top:1px solid var(--line);margin-top:36px}
     .foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:16px 0;color:var(--muted);font-size:13px}
 
-    @media (max-width:980px){
-      .logo img{height:72px}
-      h1{font-size:34px}
-      .cols-3,.cols-2,.steps,.facts{grid-template-columns:1fr}
+    @media (max-width:1020px){
+      .logo img{height:80px}
+      h1{font-size:36px}
+      .cols-4,.cols-3,.cols-2{grid-template-columns:1fr}
       nav{display:none}
     }
   </style>
@@ -84,13 +60,16 @@
 <header>
   <div class="wrap nav">
     <div class="logo">
-      <img src="/assets/logo.png" alt="NextPort Hub logo" loading="eager">
+      <img src="/assets/logo.png" alt="NextPort Hub logo">
       <span class="brand">NextPort Hub</span>
     </div>
     <nav>
       <a href="#services">Services</a>
-      <a href="#coverage">Coverage</a>
+      <a href="#modes">Transport modes</a>
+      <a href="#routes">Routes</a>
       <a href="#process">How it works</a>
+      <a href="#advantages">Why us</a>
+      <a href="#docs">Docs</a>
       <a href="#faq">FAQ</a>
       <a href="#contact" class="btn-ghost">Contact</a>
     </nav>
@@ -99,161 +78,186 @@
 
 <main class="wrap">
   <!-- HERO -->
-  <section class="panel" style="margin-top:18px">
+  <section class="panel" id="hero" style="margin-top:18px">
     <h1>Freight from China to the US, EU & Canada — handled.</h1>
-    <p class="sub">
-      We consolidate in China, ship by sea/road/rail/air, clear customs and deliver to your door or 3PL. From 1 ton.
-      Transparent communication and one point of contact.
-    </p>
-    <div class="badges">
+    <p class="sub">We consolidate at our Chinese warehouse, ship by sea/road/rail/air, clear customs, and deliver to door, 3PL or FBA. From 1 ton. Payments in USD / USDT / BTC.</p>
+    <div style="margin-top:8px">
       <span class="badge">China → US/EU/CA</span>
-      <span class="badge">Own consolidation in China</span>
-      <span class="badge">Customs included</span>
+      <span class="badge">Customs clearance included</span>
       <span class="badge">FBA / 3PL / Door delivery</span>
-      <span class="badge">USD / USDT / BTC</span>
+      <span class="badge">One point of contact</span>
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- SERVICES (как у cargo — блоки преимуществ/услуг) -->
   <section id="services" class="panel">
     <h2>Services</h2>
     <div class="cols-3">
-      <div class="panel">
+      <div class="card">
         <h3>Consolidation in China</h3>
         <ul class="list">
           <li>Inbound from 1688/Alibaba/factories</li>
           <li>Inspection, labeling, packing, palletizing</li>
-          <li>Combine multiple suppliers into one lot</li>
+          <li>Multi-supplier consolidation into one lot</li>
         </ul>
       </div>
-      <div class="panel">
+      <div class="card">
         <h3>Freight & customs</h3>
         <ul class="list">
-          <li>Sea LCL/FCL · Road/Rail (EU) · Air (urgent)</li>
+          <li>Sea LCL/FCL · Road/rail (EU) · Air (urgent)</li>
           <li>Customs clearance & documentation</li>
-          <li>Insurance support upon request</li>
+          <li>Insurance support on request</li>
         </ul>
       </div>
-      <div class="panel">
+      <div class="card">
         <h3>Last-mile delivery</h3>
         <ul class="list">
-          <li>Door, 3PL/DC, FBA prep and delivery</li>
-          <li>Time windows and access coordination</li>
-          <li>Flexible payment: USD / USDT / BTC</li>
+          <li>Door, 3PL/DC, FBA appointments</li>
+          <li>Time windows & access coordination</li>
+          <li>USD / USDT / BTC</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- COVERAGE -->
-  <section id="coverage" class="panel">
-    <h2>Coverage</h2>
+  <!-- MODES (аналог секции «виды перевозок») -->
+  <section id="modes" class="panel">
+    <h2>Transport modes</h2>
+    <div class="cols-4">
+      <div class="card">
+        <h3>Sea LCL</h3>
+        <p class="sub">Groupage cargo from 1 ton. Best cost/CBM for regular flows.</p>
+      </div>
+      <div class="card">
+        <h3>Sea FCL</h3>
+        <p class="sub">Full containers with origin handling and customs support.</p>
+      </div>
+      <div class="card">
+        <h3>Road / Rail (EU)</h3>
+        <p class="sub">Balanced timing & cost for EU lanes.</p>
+      </div>
+      <div class="card">
+        <h3>Air (urgent)</h3>
+        <p class="sub">For time-critical shipments with SLA control.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROUTES / ГЕОГРАФИЯ (как у cargo: направления) -->
+  <section id="routes" class="panel">
+    <h2>Routes</h2>
     <div class="cols-2">
-      <div class="panel">
-        <h3>Origin — China</h3>
+      <div class="card">
+        <h3>Origin: China</h3>
         <ul class="list">
-          <li>Key hubs: Shenzhen, Guangzhou, Yiwu, Ningbo, Shanghai</li>
-          <li>Regional pickup upon request</li>
+          <li>Shenzhen, Guangzhou, Yiwu, Ningbo, Shanghai</li>
+          <li>Regional pickup on request</li>
         </ul>
       </div>
-      <div class="panel">
+      <div class="card">
         <h3>Destinations</h3>
         <ul class="list">
-          <li>United States & Canada — ports, DCs, door delivery</li>
+          <li>United States & Canada — ports, DCs, door</li>
           <li>European Union — road/rail & door delivery</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
+  <!-- PROCESS (этапы — 3 шага) -->
   <section id="process" class="panel">
     <h2>How it works</h2>
-    <div class="steps">
-      <div class="step">
+    <div class="cols-3">
+      <div class="card">
         <h3>1) Pickup → CN warehouse</h3>
-        <p class="sub">We receive goods from your suppliers, inspect, label, and consolidate into one shipment.</p>
+        <p class="sub">We receive goods from suppliers, inspect, label, pack & consolidate.</p>
       </div>
-      <div class="step">
+      <div class="card">
         <h3>2) Ship</h3>
-        <p class="sub">Sea LCL/FCL to US/EU/CA; road/rail for EU lanes; air for urgent cargo.</p>
+        <p class="sub">Sea LCL/FCL to US/EU/CA; road/rail for EU; air for urgent cargo.</p>
       </div>
-      <div class="step">
+      <div class="card">
         <h3>3) Customs & last-mile</h3>
-        <p class="sub">Customs clearance included. Final delivery to door, 3PL or FBA.</p>
+        <p class="sub">Customs included. Final delivery to door, 3PL or FBA.</p>
       </div>
     </div>
   </section>
 
-  <!-- FACTS (no prices) -->
-  <section class="panel">
-    <h2>What to expect</h2>
-    <div class="facts">
-      <div class="fact">From 1 ton (LCL/FCL)</div>
-      <div class="fact">Turnkey customs clearance</div>
-      <div class="fact">Single point of contact</div>
+  <!-- ADVANTAGES (почему мы) -->
+  <section id="advantages" class="panel">
+    <h2>Why choose NextPort Hub</h2>
+    <div class="cols-3">
+      <div class="card">
+        <h3>Single responsibility</h3>
+        <p class="sub">One team, one contact — from pickup to last-mile.</p>
+      </div>
+      <div class="card">
+        <h3>Transparent process</h3>
+        <p class="sub">Clear milestones and proactive updates.</p>
+      </div>
+      <div class="card">
+        <h3>Flexible payments</h3>
+        <p class="sub">USD, USDT, BTC — choose what’s convenient.</p>
+      </div>
     </div>
   </section>
 
-  <!-- CARGO TYPES / RESTRICTIONS -->
-  <section class="panel">
-    <h2>Cargo & restrictions</h2>
+  <!-- DOCS / RESTRICTIONS -->
+  <section id="docs" class="panel">
+    <h2>Documents & restrictions</h2>
     <div class="cols-2">
-      <div class="panel">
-        <h3>Typical cargo</h3>
+      <div class="card">
+        <h3>Documents</h3>
         <ul class="list">
-          <li>Consumer goods, electronics accessories, home & kitchen</li>
-          <li>Textiles, packaging, tools, furniture components</li>
-          <li>Retail & e-commerce replenishment, 3PL/FBA prep</li>
+          <li>Commercial invoice & packing list</li>
+          <li>HS codes and product compliance</li>
+          <li>Insurance (optional)</li>
         </ul>
       </div>
-      <div class="panel">
-        <h3>Restricted / not accepted</h3>
+      <div class="card">
+        <h3>Restrictions</h3>
         <ul class="list">
-          <li>Dangerous goods (unless pre-approved)</li>
+          <li>Dangerous goods — only if pre-approved</li>
           <li>Counterfeit / IP-infringing items</li>
-          <li>Items prohibited by destination country law</li>
+          <li>Items prohibited by destination law</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- FAQ (как у cargo: компактно, без аккордеона чтобы проще) -->
   <section id="faq" class="panel">
     <h2>FAQ</h2>
     <div class="cols-2">
-      <div class="panel">
+      <div class="card">
         <h3>What info do you need to quote?</h3>
-        <p class="sub">Pickup city/factory, destination city, commodity/HS code, weight/CBM, packing list, deadline, preferred mode.</p>
+        <p class="sub">Pickup city/factory, destination, commodity/HS, weight/CBM, packing, deadline, preferred mode.</p>
       </div>
-      <div class="panel">
-        <h3>Can you deliver to FBA/3PL?</h3>
-        <p class="sub">Yes. We handle labeling, appointments and access requirements for DCs and Amazon FBA.</p>
+      <div class="card">
+        <h3>Do you work with FBA/3PL?</h3>
+        <p class="sub">Yes. We handle labeling, time windows and access requirements.</p>
       </div>
-      <div class="panel">
-        <h3>What payment options?</h3>
+      <div class="card">
+        <h3>Payment options?</h3>
         <p class="sub">USD, USDT, BTC.</p>
       </div>
-      <div class="panel">
-        <h3>Do you assist with documents?</h3>
-        <p class="sub">We can help with commercial docs, customs paperwork and insurance.</p>
+      <div class="card">
+        <h3>Insurance & docs?</h3>
+        <p class="sub">We assist with documentation and insurance on request.</p>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT (primary) + RFQ (secondary) -->
+  <!-- CONTACT + RFQ (как вторичный блок) -->
   <section id="contact" class="panel">
     <h2>Contact</h2>
     <div class="cols-2">
-      <div class="panel">
+      <div class="card">
         <p class="sub" style="margin:0 0 8px"><b>Email:</b> <a href="mailto:sales@nextporthub.com">sales@nextporthub.com</a></p>
         <p class="sub" style="margin:0 0 8px"><b>Hours:</b> Mon–Fri, 09:00–18:00 (EET)</p>
         <p class="sub" style="margin:0">Tell us about your route and cargo — we’ll reply within 24 hours.</p>
-        <div style="margin-top:10px">
-          <a class="btn btn-primary" href="#rfq">Request a quote</a>
-        </div>
       </div>
-      <div id="rfq" class="panel">
+      <div class="card">
         <h3 style="margin:0 0 6px">Request a quote</h3>
         <form action="mailto:sales@nextporthub.com" method="post" enctype="text/plain" style="display:grid;gap:10px">
           <div class="cols-2">
@@ -284,8 +288,8 @@
 </footer>
 
 <script>
-  document.getElementById('y').textContent=new Date().getFullYear();
-  // smooth in-page scroll
+  document.getElementById('y').textContent = new Date().getFullYear();
+  // Smooth scroll
   document.addEventListener('click',(e)=>{
     const a=e.target.closest('a[href^="#"]'); if(!a) return;
     const id=a.getAttribute('href').slice(1), el=document.getElementById(id);
