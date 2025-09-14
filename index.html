@@ -7,7 +7,6 @@
   <title>NextPort Hub — International Freight & Port Services</title>
   <meta name="description" content="International cargo delivery from Asia to the USA, EU and Canada. Consolidation, customs clearance, door delivery." />
 
-  <!-- Favicon / Social preview -->
   <link rel="icon" href="/assets/logo.png" sizes="any" />
   <link rel="apple-touch-icon" href="/assets/logo.png" />
   <meta property="og:title" content="NextPort Hub" />
@@ -16,38 +15,39 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nextporthub.com/" />
 
-  <!-- Preload hero to avoid flash -->
   <link rel="preload" as="image" href="/assets/hero-ship.jpg" imagesizes="100vw" />
 
   <style>
-    /* Минимальные стили, чтобы картинки были резиновыми */
-    :root { color-scheme: light dark; }
-    body { margin:0; font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#0f172a; }
-    header, main, footer { max-width: 1200px; margin: 0 auto; padding: 20px; }
-    .hero-wrap { position: relative; }
+    :root{--ink:#0b1220;--panel:#0f172a;--line:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--brand:#b31212}
+    *{box-sizing:border-box} body{margin:0;font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#0f172a;}
+    a{color:inherit;text-decoration:none} img{max-width:100%;height:auto;}
+    .hero-wrap { position: relative; overflow:hidden; }
     .hero-img { width:100%; height:auto; display:block; object-fit:cover; }
-    .hero-title { position:absolute; inset:auto 0 10%; padding: 0 20px; color:#fff; text-shadow: 0 2px 24px rgba(0,0,0,.5); font-size: clamp(28px, 6vw, 56px); font-weight:800; }
-    .section { padding: 48px 0; }
-    .grid { display:grid; gap:24px; grid-template-columns: 1fr; }
-    @media (min-width: 900px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
-    img { max-width:100%; height:auto; }
+    .hero-title { position:absolute; bottom: 20%; left:50%; transform:translateX(-50%); color:#fff; text-shadow:0 2px 10px rgba(0,0,0,.6); font-size: clamp(28px, 6vw, 56px); font-weight:800; padding: 0 20px; text-align:center; }
+    .section { padding: 48px 20px; max-width:1200px; margin:0 auto; }
+    .grid { display:grid; gap:24px; grid-template-columns:1fr; }
+    @media(min-width:900px){ .grid-2 { grid-template-columns:repeat(2,1fr); } }
     .logo { height:64px; width:auto; vertical-align:middle; }
+    hr { border:0; border-top:1px solid #e2e8f0; margin: 48px 0; }
+    .btn { display:inline-block; padding:12px 20px; border-radius:8px; font-weight:600; }
+    .btn-primary { background:#b31212; color:#fff; border:none; }
     .muted { color:#64748b; }
-    hr { border:0; border-top:1px solid #e2e8f0; margin: 32px 0; }
   </style>
 </head>
 <body>
 
-  <header aria-label="Top bar">
-    <img src="/assets/logo.png" alt="NextPort Hub" class="logo" width="160" height="160" />
+  <header>
+    <div style="padding:20px; text-align:center;">
+      <img src="/assets/logo.png" alt="NextPort Hub logo" class="logo" width="160" height="160" />
+    </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero-wrap" aria-label="Hero">
+  <section class="hero-wrap" id="home" aria-label="Hero">
     <img
       src="/assets/hero-ship.jpg"
       class="hero-img"
-      alt="Container ship entering port at sunrise"
+      alt="Container ship entering port"
       width="2000" height="900"
       decoding="async"
     />
@@ -55,9 +55,10 @@
   </section>
 
   <main>
+
     <!-- SERVICES -->
-    <section class="section" id="services" aria-labelledby="services-title">
-      <h2 id="services-title">Our Services</h2>
+    <section class="section" id="services">
+      <h2>Our Services</h2>
       <div class="grid grid-2">
         <div>
           <p class="muted">Consolidation, customs clearance and door delivery across the USA, EU and Canada. Reliable partners, transparent process, on-time arrivals.</p>
@@ -66,7 +67,7 @@
         <div>
           <img
             src="/assets/services-containers-top.jpg"
-            alt="Colorful containers viewed from above"
+            alt="Containers from above"
             width="1600" height="900"
             loading="lazy" decoding="async"
           />
@@ -77,24 +78,24 @@
     <hr/>
 
     <!-- PROCESS -->
-    <section class="section" id="process" aria-labelledby="process-title">
-      <h2 id="process-title">How It Works</h2>
+    <section class="section" id="process">
+      <h2>How It Works</h2>
       <div class="grid grid-2">
         <div>
           <img
-            src="/assets/process-port-top.jpg"
-            alt="Port operations overview from the top"
+            src="/assets/whychooseus-port.jpg"
+            alt="Container terminal panorama"
             width="1600" height="900"
             loading="lazy" decoding="async"
           />
         </div>
         <div>
           <ol>
-            <li>Quote request &amp; route planning</li>
-            <li>Pick-up or supplier delivery to our hub</li>
-            <li>Export docs &amp; customs</li>
-            <li>Main leg (sea/air/rail)</li>
-            <li>Import clearance &amp; last-mile delivery</li>
+            <li>Quote request & route planning</li>
+            <li>Pick up from supplier or factory to our warehouse</li>
+            <li>Export documents & customs clearance</li>
+            <li>Main leg transport (sea / air / rail)</li>
+            <li>Import clearance & last-mile delivery</li>
           </ol>
         </div>
       </div>
@@ -103,21 +104,21 @@
     <hr/>
 
     <!-- WHY CHOOSE US -->
-    <section class="section" id="why" aria-labelledby="why-title">
-      <h2 id="why-title">Why NextPort Hub</h2>
+    <section class="section" id="why">
+      <h2>Why NextPort Hub</h2>
       <div class="grid grid-2">
         <div>
           <ul>
-            <li>Transparent pricing and timing</li>
-            <li>Trusted ports and carriers</li>
-            <li>Dedicated support team</li>
+            <li>Transparent pricing & timing</li>
+            <li>Trusted ports & carriers</li>
+            <li>Customer oriented support</li>
           </ul>
         </div>
         <div>
           <img
-            src="/assets/whychooseus-port.jpg"
-            alt="Container terminal panorama at sunset"
-            width="1600" height="900"
+            src="/assets/about-ship-bridge.jpg"
+            alt="Ship passing landmark bridge"
+            width="1200" height="800"
             loading="lazy" decoding="async"
           />
         </div>
@@ -127,32 +128,33 @@
     <hr/>
 
     <!-- ABOUT -->
-    <section class="section" id="about" aria-labelledby="about-title">
-      <h2 id="about-title">About Us</h2>
+    <section class="section" id="about">
+      <h2>About Us</h2>
       <div class="grid grid-2">
         <div>
           <img
-            src="/assets/about-ship-bridge.jpg"
-            alt="Container vessel passing a landmark bridge"
+            src="/assets/contacts-ship.jpg"
+            alt="Docked cargo ship in port"
             width="1200" height="800"
             loading="lazy" decoding="async"
           />
         </div>
         <div>
           <p>We help brands and importers move cargo globally with a focus on reliability and clear communication.</p>
-          <p class="muted">Head routes: China &rarr; USA/EU/Canada. Options for FCL/LCL, insurance and bonded storage.</p>
+          <p class="muted">Operating routes: China → US / EU / Canada. Options for FCL / LCL, insurance, bonded storage.</p>
         </div>
       </div>
     </section>
 
     <hr/>
 
-    <!-- DETAIL (vertical photo) -->
-    <section class="section" aria-label="Containers detail">
+    <!-- DETAIL -->
+    <section class="section" id="detail">
+      <h2>Detail View</h2>
       <div class="grid">
         <img
           src="/assets/detail-containers.jpg"
-          alt="Close-up view of shipping containers"
+          alt="Shipping containers close-up"
           width="900" height="1350"
           loading="lazy" decoding="async"
           style="max-height:680px; object-fit:cover; width:100%;"
@@ -163,19 +165,19 @@
     <hr/>
 
     <!-- CONTACTS -->
-    <section class="section" id="contacts" aria-labelledby="contacts-title">
-      <h2 id="contacts-title">Contacts</h2>
+    <section class="section" id="contacts">
+      <h2>Contact Us</h2>
       <div class="grid grid-2">
         <div>
           <p><strong>Email:</strong> <a href="mailto:sales@nextporthub.com">sales@nextporthub.com</a></p>
-          <p><strong>Website:</strong> <a href="https://nextporthub.com/">nextporthub.com</a></p>
-          <p class="muted">Mon–Fri 09:00–18:00 (EET)</p>
+          <p><strong>Phone:</strong> +1 (234) 567-890</p>
+          <p class="muted">Mon–Fri 09:00-18:00 (EET)</p>
         </div>
         <div>
           <img
-            src="/assets/contacts-ship.jpg"
-            alt="Cargo ship and cranes in port at dusk"
-            width="1200" height="800"
+            src="/assets/process-port-top.jpg"
+            alt="Port aerial view"
+            width="1600" height="900"
             loading="lazy" decoding="async"
           />
         </div>
@@ -183,13 +185,13 @@
     </section>
   </main>
 
-  <footer class="section" aria-label="Footer">
+  <footer class="section">
     <hr/>
-    <p class="muted">© <span id="y"></span> NextPort Hub</p>
+    <p class="muted">© <span id="year"></span> NextPort Hub</p>
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
