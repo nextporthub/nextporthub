@@ -3,83 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nextport Hub – International Cargo Solutions</title>
-  <style>
-    body { margin:0; font-family: Arial, sans-serif; color:#0f172a; }
-    header { background:#fff; padding:20px 40px; display:flex; align-items:center; justify-content:space-between; }
-    header img { height:70px; }
-    nav a { margin:0 15px; text-decoration:none; color:#0f172a; font-weight:bold; }
-    .hero { background:url("images/hero-ship.jpg") center/cover no-repeat; height:80vh; display:flex; align-items:center; justify-content:center; color:#fff; text-align:center; }
-    .hero h1 { font-size:48px; background:rgba(0,0,0,0.4); padding:20px; border-radius:10px; }
-    section { padding:80px 40px; max-width:1200px; margin:auto; }
-    .services, .process, .about, .whychooseus, .contacts { margin-bottom:60px; }
-    section h2 { font-size:32px; margin-bottom:20px; text-align:center; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:20px; }
-    footer { background:#0f172a; color:#fff; padding:20px; text-align:center; }
-    img { width:100%; height:auto; border-radius:8px; }
-  </style>
+  <title>NextPort Hub – Logistics</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <img src="images/logo.png" alt="Nextport Hub">
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#about">About</a>
-      <a href="#whychooseus">Why Us</a>
-      <a href="#contacts">Contacts</a>
-    </nav>
-  </header>
 
-  <div class="hero">
-    <h1>Reliable Cargo Delivery Worldwide</h1>
-  </div>
-
-  <section id="services" class="services">
-    <h2>Our Services</h2>
-    <div class="grid">
-      <img src="images/services-containers-top.jpg" alt="Containers">
-      <p>We provide door-to-door delivery, CN consolidation, customs clearance, and flexible payment methods (USD / USDT / BTC).</p>
+  <!-- Hero section -->
+  <section class="hero">
+    <img src="assets/hero-ship.jpg" alt="Cargo ship" class="hero-img">
+    <div class="hero-text">
+      <h1>Reliable Logistics from China to US / Canada / EU</h1>
+      <a href="#quote" class="btn">Request a Quote</a>
     </div>
   </section>
 
-  <section id="process" class="process">
-    <h2>How It Works</h2>
-    <div class="grid">
-      <img src="images/process-port-top.jpg" alt="Process">
-      <p>Step-by-step transparent cargo delivery process from China and worldwide – fast, safe, and efficient.</p>
+  <!-- About section -->
+  <section class="about">
+    <div class="container">
+      <img src="assets/about-ship-bridge.jpg" alt="About NextPort Hub" class="section-img">
+      <div class="text">
+        <h2>About NextPort Hub</h2>
+        <p>We specialize in ocean freight, customs clearance, and last-mile delivery.</p>
+      </div>
     </div>
   </section>
 
-  <section id="about" class="about">
-    <h2>About Us</h2>
-    <div class="grid">
-      <img src="images/about-ship-bridge.jpg" alt="About Nextport Hub">
-      <p>Nextport Hub is an international logistics company delivering goods from China, Asia, and beyond to the USA, Europe, and Canada.</p>
+  <!-- Why choose us -->
+  <section class="why">
+    <div class="container">
+      <img src="assets/whychooseus-port.jpg" alt="Port logistics" class="section-img">
+      <div class="text">
+        <h2>Why Choose Us</h2>
+        <ul>
+          <li>Consolidation from China</li>
+          <li>Door-to-door delivery</li>
+          <li>Flexible payment (USD / USDT / BTC)</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section id="whychooseus" class="whychooseus">
-    <h2>Why Choose Us</h2>
-    <div class="grid">
-      <img src="images/whychooseus-port.jpg" alt="Port">
-      <p>We ensure reliability, transparency, and maximum customer support. Your business deserves seamless logistics.</p>
+  <!-- Services -->
+  <section class="services">
+    <div class="container">
+      <img src="assets/services-containers-top.jpg" alt="Containers services" class="section-img">
+      <div class="text">
+        <h2>Our Services</h2>
+        <p>Freight forwarding, warehousing, customs brokerage, and delivery across US, Canada, and EU.</p>
+      </div>
     </div>
   </section>
 
-  <section id="contacts" class="contacts">
-    <h2>Contacts</h2>
-    <div class="grid">
-      <img src="images/contacts-ship.jpg" alt="Contacts">
-      <p>Email: <a href="mailto:sales@nextporthub.com">sales@nextporthub.com</a><br>
-         Phone: PHONE<br>
-         Mon–Fri 09:00–18:00 (EET)
-      </p>
+  <!-- Process -->
+  <section class="process">
+    <div class="container">
+      <img src="assets/process-port-top.jpg" alt="Logistics process" class="section-img">
+      <div class="text">
+        <h2>Our Process</h2>
+        <p>Step by step cargo management — from pick-up in China to door delivery abroad.</p>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 Nextport Hub · All rights reserved.</p>
-  </footer>
+  <!-- Details -->
+  <section class="details">
+    <div class="container">
+      <img src="assets/detail-containers.jpg" alt="Containers detail" class="section-img">
+      <div class="text">
+        <h2>Detailed Freight Options</h2>
+        <p>We offer multiple consolidation and shipment solutions based on your cargo size and timeline.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacts -->
+  <section class="contacts" id="quote">
+    <div class="container">
+      <img src="assets/contacts-ship.jpg" alt="Contact NextPort Hub" class="section-img">
+      <div class="text">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:sales@nextporthub.com">sales@nextporthub.com</a></p>
+        <p>Phone: PHONE</p>
+        <p>Working hours: Mon–Fri 09:00–18:00 (EET)</p>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
