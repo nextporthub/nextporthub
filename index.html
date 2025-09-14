@@ -1,197 +1,250 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NextPort Hub — International Freight</title>
+<meta name="description" content="International cargo delivery from China to the USA, EU and Canada. Consolidation, customs clearance, door delivery."/>
+<link rel="icon" href="/assets/logo.png" sizes="any"/>
+<link rel="apple-touch-icon" href="/assets/logo.png"/>
+<meta property="og:title" content="NextPort Hub"/>
+<meta property="og:description" content="Door-to-door freight. China → US/EU/CA."/>
+<meta property="og:image" content="/assets/hero-ship.jpg"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://nextporthub.com/"/>
+<link rel="preload" as="image" href="/assets/hero-ship.jpg" imagesizes="100vw"/>
 
-  <title>NextPort Hub — International Freight & Port Services</title>
-  <meta name="description" content="International cargo delivery from Asia to the USA, EU and Canada. Consolidation, customs clearance, door delivery." />
+<style>
+  /* Цвета с высокой читаемостью */
+  :root{
+    --ink:#111827;        /* основной текст (почти чёрный) */
+    --muted:#374151;      /* вторичный текст */
+    --line:#e5e7eb;       /* светлая линия */
+    --brand:#b31212;      /* бренд-красный */
+    --brand-dark:#8e0f0f; /* hover */
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#ffffff;color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;height:auto;display:block;border-radius:10px}
+  header,main,footer{max-width:1200px;margin:0 auto;padding:0 20px}
 
-  <link rel="icon" href="/assets/logo.png" sizes="any" />
-  <link rel="apple-touch-icon" href="/assets/logo.png" />
-  <meta property="og:title" content="NextPort Hub" />
-  <meta property="og:description" content="International cargo delivery from Asia to the USA, EU and Canada." />
-  <meta property="og:image" content="/assets/hero-ship.jpg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://nextporthub.com/" />
+  /* Хедер с логотипом */
+  .top{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+  .logo{height:60px;width:auto}
 
-  <link rel="preload" as="image" href="/assets/hero-ship.jpg" imagesizes="100vw" />
+  /* HERO с максимальной читаемостью */
+  .hero-wrap{position:relative;isolation:isolate}
+  .hero-img{width:100%;height:auto;object-fit:cover;display:block}
+  /* затемняющий градиент поверх фото */
+  .hero-wrap::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to bottom, rgba(0,0,0,.35) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.65) 100%);
+    z-index:1;
+  }
+  .hero-title{
+    position:absolute;left:50%;bottom:12%;
+    transform:translateX(-50%);
+    z-index:2;
+    color:#fff;
+    font-weight:900;
+    font-size:clamp(32px,7vw,64px);
+    line-height:1.08;
+    text-align:center;
+    /* полупрозрачная подложка + тень для супер-читаемости */
+    background:rgba(0,0,0,.45);
+    padding:14px 22px;border-radius:10px;
+    text-shadow:0 4px 18px rgba(0,0,0,.8);
+    letter-spacing:.2px;
+  }
 
-  <style>
-    :root{--ink:#0b1220;--panel:#0f172a;--line:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--brand:#b31212}
-    *{box-sizing:border-box} body{margin:0;font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#0f172a;}
-    a{color:inherit;text-decoration:none} img{max-width:100%;height:auto;}
-    .hero-wrap { position: relative; overflow:hidden; }
-    .hero-img { width:100%; height:auto; display:block; object-fit:cover; }
-    .hero-title { position:absolute; bottom: 20%; left:50%; transform:translateX(-50%); color:#fff; text-shadow:0 2px 10px rgba(0,0,0,.6); font-size: clamp(28px, 6vw, 56px); font-weight:800; padding: 0 20px; text-align:center; }
-    .section { padding: 48px 20px; max-width:1200px; margin:0 auto; }
-    .grid { display:grid; gap:24px; grid-template-columns:1fr; }
-    @media(min-width:900px){ .grid-2 { grid-template-columns:repeat(2,1fr); } }
-    .logo { height:64px; width:auto; vertical-align:middle; }
-    hr { border:0; border-top:1px solid #e2e8f0; margin: 48px 0; }
-    .btn { display:inline-block; padding:12px 20px; border-radius:8px; font-weight:600; }
-    .btn-primary { background:#b31212; color:#fff; border:none; }
-    .muted { color:#64748b; }
-  </style>
+  /* Секции */
+  .section{padding:48px 0}
+  .muted{color:var(--muted)}
+  .grid{display:grid;gap:24px}
+  .grid-2{grid-template-columns:1fr}
+  @media (min-width:900px){ .grid-2{grid-template-columns:1fr 1fr} }
+  hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+
+  /* Кнопки */
+  .btn{display:inline-block;padding:12px 18px;border-radius:10px;font-weight:700;border:1px solid var(--line);}
+  .btn-primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .btn-primary:hover{background:var(--brand-dark)}
+
+  /* Карточки/текст */
+  h1,h2{margin:0 0 12px}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 12px 20px}
+</style>
 </head>
 <body>
 
-  <header>
-    <div style="padding:20px; text-align:center;">
-      <img src="/assets/logo.png" alt="NextPort Hub logo" class="logo" width="160" height="160" />
-    </div>
-  </header>
+<header aria-label="Top bar">
+  <div class="top">
+    <img src="/assets/logo.png" alt="NextPort Hub" class="logo" width="160" height="160"/>
+    <nav style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#why">Why us</a>
+      <a href="#contacts">Contacts</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <section class="hero-wrap" id="home" aria-label="Hero">
-    <img
-      src="/assets/hero-ship.jpg"
-      class="hero-img"
-      alt="Container ship entering port"
-      width="2000" height="900"
-      decoding="async"
-    />
-    <h1 class="hero-title">International Freight Shipping</h1>
-  </section>
+<!-- HERO -->
+<section class="hero-wrap" role="banner" aria-label="Hero">
+  <img
+    src="/assets/hero-ship.jpg"
+    class="hero-img"
+    alt="Container ship entering port at sunrise"
+    width="2000" height="900"
+    decoding="async"
+  />
+  <h1 class="hero-title">International Freight Shipping</h1>
+</section>
 
-  <main>
+<main>
 
-    <!-- SERVICES -->
-    <section class="section" id="services">
-      <h2>Our Services</h2>
-      <div class="grid grid-2">
-        <div>
-          <p class="muted">Consolidation, customs clearance and door delivery across the USA, EU and Canada. Reliable partners, transparent process, on-time arrivals.</p>
-          <p>We provide sea, air and rail solutions with end-to-end visibility and document support.</p>
-        </div>
-        <div>
-          <img
-            src="/assets/services-containers-top.jpg"
-            alt="Containers from above"
-            width="1600" height="900"
-            loading="lazy" decoding="async"
-          />
-        </div>
-      </div>
-    </section>
-
-    <hr/>
-
-    <!-- PROCESS -->
-    <section class="section" id="process">
-      <h2>How It Works</h2>
-      <div class="grid grid-2">
-        <div>
-          <img
-            src="/assets/whychooseus-port.jpg"
-            alt="Container terminal panorama"
-            width="1600" height="900"
-            loading="lazy" decoding="async"
-          />
-        </div>
-        <div>
-          <ol>
-            <li>Quote request & route planning</li>
-            <li>Pick up from supplier or factory to our warehouse</li>
-            <li>Export documents & customs clearance</li>
-            <li>Main leg transport (sea / air / rail)</li>
-            <li>Import clearance & last-mile delivery</li>
-          </ol>
+  <!-- SERVICES -->
+  <section id="services" class="section" aria-labelledby="services-title">
+    <h2 id="services-title">Our Services</h2>
+    <div class="grid grid-2">
+      <div>
+        <p class="muted">Consolidation in China, customs clearance, and door delivery across the USA, EU and Canada. Reliable timelines, transparent communication, and document support.</p>
+        <p>Sea LCL/FCL, road/rail (EU), air for urgent cargo. Options for FBA/3PL appointments and insurance.</p>
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="#contacts">Request a quote</a>
+          <a class="btn" href="#process">How it works</a>
         </div>
       </div>
-    </section>
-
-    <hr/>
-
-    <!-- WHY CHOOSE US -->
-    <section class="section" id="why">
-      <h2>Why NextPort Hub</h2>
-      <div class="grid grid-2">
-        <div>
-          <ul>
-            <li>Transparent pricing & timing</li>
-            <li>Trusted ports & carriers</li>
-            <li>Customer oriented support</li>
-          </ul>
-        </div>
-        <div>
-          <img
-            src="/assets/about-ship-bridge.jpg"
-            alt="Ship passing landmark bridge"
-            width="1200" height="800"
-            loading="lazy" decoding="async"
-          />
-        </div>
-      </div>
-    </section>
-
-    <hr/>
-
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <h2>About Us</h2>
-      <div class="grid grid-2">
-        <div>
-          <img
-            src="/assets/contacts-ship.jpg"
-            alt="Docked cargo ship in port"
-            width="1200" height="800"
-            loading="lazy" decoding="async"
-          />
-        </div>
-        <div>
-          <p>We help brands and importers move cargo globally with a focus on reliability and clear communication.</p>
-          <p class="muted">Operating routes: China → US / EU / Canada. Options for FCL / LCL, insurance, bonded storage.</p>
-        </div>
-      </div>
-    </section>
-
-    <hr/>
-
-    <!-- DETAIL -->
-    <section class="section" id="detail">
-      <h2>Detail View</h2>
-      <div class="grid">
+      <div>
         <img
-          src="/assets/detail-containers.jpg"
-          alt="Shipping containers close-up"
-          width="900" height="1350"
+          src="/assets/services-containers-top.jpg"
+          alt="Colorful containers viewed from above"
+          width="1600" height="900"
           loading="lazy" decoding="async"
-          style="max-height:680px; object-fit:cover; width:100%;"
         />
       </div>
-    </section>
+    </div>
+  </section>
 
-    <hr/>
+  <hr/>
 
-    <!-- CONTACTS -->
-    <section class="section" id="contacts">
-      <h2>Contact Us</h2>
-      <div class="grid grid-2">
-        <div>
-          <p><strong>Email:</strong> <a href="mailto:sales@nextporthub.com">sales@nextporthub.com</a></p>
-          <p><strong>Phone:</strong> +1 (234) 567-890</p>
-          <p class="muted">Mon–Fri 09:00-18:00 (EET)</p>
-        </div>
-        <div>
-          <img
-            src="/assets/process-port-top.jpg"
-            alt="Port aerial view"
-            width="1600" height="900"
-            loading="lazy" decoding="async"
-          />
-        </div>
+  <!-- PROCESS -->
+  <section id="process" class="section" aria-labelledby="process-title">
+    <h2 id="process-title">How It Works</h2>
+    <div class="grid grid-2">
+      <div>
+        <img
+          src="/assets/whychooseus-port.jpg"
+          alt="Container terminal panorama with cranes"
+          width="1600" height="900"
+          loading="lazy" decoding="async"
+        />
       </div>
-    </section>
-  </main>
+      <div>
+        <ol>
+          <li>Quote request & route planning</li>
+          <li>Pick-up or supplier delivery to our CN warehouse</li>
+          <li>Export docs & customs clearance</li>
+          <li>Main leg transport (sea / air / rail)</li>
+          <li>Import clearance & last-mile to door / 3PL / FBA</li>
+        </ol>
+      </div>
+    </div>
+  </section>
 
-  <footer class="section">
-    <hr/>
-    <p class="muted">© <span id="year"></span> NextPort Hub</p>
-  </footer>
+  <hr/>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <!-- WHY CHOOSE US -->
+  <section id="why" class="section" aria-labelledby="why-title">
+    <h2 id="why-title">Why NextPort Hub</h2>
+    <div class="grid grid-2">
+      <div>
+        <ul>
+          <li>Single responsibility — one team from pickup to last-mile</li>
+          <li>Transparent milestones and proactive updates</li>
+          <li>Flexible payments — USD, USDT, BTC</li>
+        </ul>
+      </div>
+      <div>
+        <img
+          src="/assets/about-ship-bridge.jpg"
+          alt="Container vessel passing a landmark bridge"
+          width="1200" height="800"
+          loading="lazy" decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- ABOUT -->
+  <section id="about" class="section" aria-labelledby="about-title">
+    <h2 id="about-title">About Us</h2>
+    <div class="grid grid-2">
+      <div>
+        <img
+          src="/assets/contacts-ship.jpg"
+          alt="Cargo ship docked in port"
+          width="1200" height="800"
+          loading="lazy" decoding="async"
+        />
+      </div>
+      <div>
+        <p>We help brands and importers move cargo globally with a focus on reliability and clear communication.</p>
+        <p class="muted">Key routes: China → USA / EU / Canada. FCL/LCL options, bonded storage and insurance on request.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- DETAIL (vertical) -->
+  <section class="section" aria-label="Containers detail">
+    <div class="grid">
+      <img
+        src="/assets/detail-containers.jpg"
+        alt="Close-up view of shipping containers"
+        width="900" height="1350"
+        loading="lazy" decoding="async"
+        style="max-height:680px;object-fit:cover;width:100%;"
+      />
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- CONTACTS -->
+  <section id="contacts" class="section" aria-labelledby="contacts-title">
+    <h2 id="contacts-title">Contacts</h2>
+    <div class="grid grid-2">
+      <div>
+        <p><strong>Email:</strong> <a href="mailto:sales@nextporthub.com">sales@nextporthub.com</a></p>
+        <p><strong>Phone:</strong> +1 (234) 567-890</p>
+        <p class="muted">Mon–Fri 09:00–18:00 (EET)</p>
+      </div>
+      <div>
+        <img
+          src="/assets/process-port-top.jpg"
+          alt="Aerial view of port operations"
+          width="1600" height="900"
+          loading="lazy" decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="section" aria-label="Footer">
+  <hr/>
+  <p class="muted">© <span id="y"></span> NextPort Hub</p>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
